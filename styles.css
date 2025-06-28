@@ -275,9 +275,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .portfolio-row {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   overflow-x: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   scroll-snap-type: x mandatory;
 }
 
@@ -548,7 +548,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .team-card {
   flex: 0 0 auto;
-  width: 260px;
+  width: 280px;
   background-color: rgba(31, 41, 55, 0.5);
   border: 1px solid #374151;
   border-radius: 1rem;
