@@ -433,9 +433,15 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  animation-duration: var(--scroll-speed, 20s);
+  animation-duration: var(--scroll-speed, 25s);
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+.testimonial-name {
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #999;
 }
 
 .up-scroll {
