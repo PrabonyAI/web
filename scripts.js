@@ -13,16 +13,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-}
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
 
 // FAQ accordion functionality
 document.querySelectorAll('.faq-question').forEach(question => {
@@ -160,6 +158,19 @@ testimonialColumns.forEach(column => {
         column.style.animationPlayState = 'running';
     });
 });
+
+const scroller = document.querySelector('.testimonial-scroller');
+
+  if (window.innerWidth <= 768 && scroller) {
+    let scrollAmount = 0;
+    setInterval(() => {
+      scrollAmount += 1;
+      scroller.scrollLeft = scrollAmount;
+      if (scrollAmount >= scroller.scrollWidth - scroller.clientWidth) {
+        scrollAmount = 0;
+      }
+    }, 30);
+  }
 
 // Portfolio and team horizontal scroll
 const horizontalScrollContainers = document.querySelectorAll('.portfolio-row, .team-cards');
