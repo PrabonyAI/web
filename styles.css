@@ -1,3 +1,4 @@
+
 /* Global Styles */
 * {
     margin: 0;
@@ -1321,7 +1322,7 @@ body {
   .testimonial-scroller {
     flex-direction: column;
     gap: 1.5rem;
-    animation: reverse 20s linear infinite; /* disables auto scroll on mobile */
+    animation: reverse; /* disables auto scroll on mobile */
     height: auto;
     overflow-y: auto;
     max-height: 600px;
@@ -1376,4 +1377,26 @@ body {
     .newsletter {
         flex-direction: column;
     }
+}
+/* Mobile-only Let's Talk link inside hamburger */
+.mobile-only {
+  display: none;
+}
+
+/* Show "Let's Talk" inside menu in mobile only */
+@media (max-width: 768px) {
+  .nav-buttons {
+    display: none; /* Hide desktop version */
+  }
+
+  .mobile-only {
+    display: block;
+    text-align: center;
+  }
+
+  .nav-menu .btn-primary {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
 }
