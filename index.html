@@ -1,13 +1,14 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrabonyAI - We help business to scale with AI</title>
+    <title>Prabony AI </title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Helvetica:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://raw.githubusercontent.com/kunfuspanda/photos/main/fab.png" rel="icon" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/kunfuspanda/photos/main/fab.png">
+     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Helvetica:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -16,25 +17,30 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Prabony AI Logo" class="logo">
+                    <a href="#home">
+                        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Prabony AI Logo" class="logo">
+                    </a>
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="nav-links"> <!-- Changed ID to nav-links -->
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#contact" class="nav-link">Contact Us</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="mobile-only"><a href="#contact" class="nav-link">Let's Talk</a></li>
-
+                    <li class="mobile-only">
+                        <button class="nav-close" id="closeBtn" aria-label="Close menu"> <!-- Changed ID to closeBtn -->
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </li>
                 </ul>
-                <div class="nav-buttons">
+                <div class="nav-buttons desktop-only">
                     <a href="#contact" class="btn-primary">Let's Talk</a>
                 </div>
-                <div class="hamburger">
+                <button class="hamburger" id="menuBtn" aria-label="Open menu"> <!-- Changed ID to menuBtn -->
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
@@ -128,7 +134,7 @@
 
     <!-- Portfolio Section -->
  <section class="portfolio">
-    <h2 class="section-heading">Portfolio</h2>
+    <h2 class="section-heading portfolio-heading">Our Portfolio</h2>
     <div class="portfolio-row">
       <div class="portfolio-card">
   <img src="https://via.placeholder.com/48" alt="Bot Icon" class="icon-img" />
@@ -218,12 +224,12 @@
     </section>
 
     <!-- Customer Testimonials -->
-    <section class="testimonials">
+    <section class="testimonials desktop-only">
   <div class="container">
     <div class="testimonials-content">
       <div class="testimonials-left">
         <h2 class="section-heading">Customer Testimonials</h2>
-        <p>Hear what our clients say about their experience working with Prabony AI and the transformative impact of our solutions.</p>
+        <p>Hear what our clients say about their experience working with Prabony AI and the transformative impact of our solutions.</p><br/>
         <p> </p>
         <div class="button-group">
           <a href="#contact" class="btn-primary">Feedback</a>
@@ -286,7 +292,6 @@
               <p class="testimonial-name">— Priya K., Customer Support Head</p>
             </div>
           </div>
-
           <!-- Shadows -->
           <div class="fade fade-top"></div>
           <div class="fade fade-bottom"></div>
@@ -295,6 +300,43 @@
     </div>
   </div>
 </section>
+<!-- Mobile Testimonials (X-axis scroll) -->
+<div class="mobile-testimonials testimonial-scroller-mobile mobile-only">
+  <h2 class="section-heading" style="text-align:center;margin-top: 3rem;">Customer Testimonials</h2>
+          <p style="text-align: center;color: #ccc;">Hear what our clients say about their experience working with Prabony AI and the transformative impact of our solutions.</p><br/>
+        <p> </p>
+        <div class="button-group">
+          <a href="#contact" class="btn-primary" style="width: 80%;margin-left: 2.2rem;">Feedback</a>
+        </div>
+  <div class="testimonial-row">
+    <div class="testimonials-spacer"></div>
+    <div class="testimonial-card">
+      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p>"Prabony AI transformed our business processes with their intelligent automation solutions."</p>
+      <p class="testimonial-name">— Priya K., Customer Support Head</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p>"The AI chatbot they developed for us has revolutionized our customer service. Highly recommended!"</p>
+      <p class="testimonial-name">— Anil S., Product Manager</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
+      <p class="testimonial-name">— Meera R., CTO</p>
+    </div>
+        <div class="testimonial-card">
+      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
+      <p class="testimonial-name">— Meera R., CTO</p>
+    </div>
+        <div class="testimonial-card">
+      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
+      <p class="testimonial-name">— Meera R., CTO</p>
+    </div>
+  </div>
+</div>
 
 
     <!-- Our Team -->
