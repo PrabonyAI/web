@@ -13,13 +13,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.getElementById('nav-links');
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    if (!navLinks) {
+        console.error("Element with ID 'nav-links' not found.");
+    }
+    if (!menuBtn) {
+        console.error("Element with ID 'menuBtn' not found.");
+    }
+    if (!closeBtn) {
+        console.error("Element with ID 'closeBtn' not found.");
+    }
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.add('show');
+        });
+    }
+
+    if (closeBtn && navLinks) {
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    }
 });
+
 
 
 // FAQ accordion functionality
@@ -161,17 +182,58 @@ testimonialColumns.forEach(column => {
 
 const scroller = document.querySelector('.testimonial-scroller');
 
-  if (window.innerWidth <= 768 && scroller) {
-    let scrollAmount = 0;
-    setInterval(() => {
-      scrollAmount += 1;
-      scroller.scrollLeft = scrollAmount;
-      if (scrollAmount >= scroller.scrollWidth - scroller.clientWidth) {
-        scrollAmount = 0;
-      }
-    }, 30);
-  }
+function updateTestimonialsForViewport() {
+  const testimonialColumns = document.querySelectorAll('.testimonials-column');
+  if (!testimonialColumns.length) return;
 
+  if (window.innerWidth <= 768 && scroller) {
+    testimonialColumns.forEach(column => {
+      const cards = column.querySelectorAll('.testimonial-card');
+      cards.forEach((card, index) => {
+        card.style.display = index >= 3 ? 'none' : 'block';
+        card.style.marginTop = '1rem'; // add space at top for mobile view
+      });
+    });
+
+    scroller.style.overflowY = 'auto';
+    scroller.style.scrollSnapType = 'y mandatory';
+    testimonialColumns.forEach(col => col.style.animation = 'none');
+  } else {
+    testimonialColumns.forEach(column => {
+      const cards = column.querySelectorAll('.testimonial-card');
+      cards.forEach(card => {
+        card.style.display = 'block';
+        card.style.marginTop = '0'; // remove space for desktop
+      });
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileTestimonialCards = document.querySelectorAll('.mobile-testimonials .testimonial-card');
+    mobileTestimonialCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
+
+
+window.addEventListener('resize', updateTestimonialsForViewport);
+document.addEventListener('DOMContentLoaded', updateTestimonialsForViewport);
+
+// ✅ Fix nav close button position on click
+const closeBtn = document.getElementById('closeBtn');
+const navLinks = document.getElementById('nav-links');
+
+if (closeBtn && navLinks) {
+  closeBtn.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+    closeBtn.style.position = 'fixed'; // Ensure it doesn't jump
+    closeBtn.style.top = '1rem';
+    closeBtn.style.right = '1.2rem';
+  });
+} 
 // Portfolio and team horizontal scroll
 const horizontalScrollContainers = document.querySelectorAll('.portfolio-row, .team-cards');
 horizontalScrollContainers.forEach(container => {
@@ -293,6 +355,19 @@ document.querySelectorAll('button, .btn-primary, .btn-secondary').forEach(button
             ripple.remove();
         }, 600);
     });
+});
+// Close mobile nav menu when any nav link is clicked
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navMenu = document.getElementById('nav-links');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu && navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+      }
+    });
+  });
 });
 
 // Add CSS for ripple animation
