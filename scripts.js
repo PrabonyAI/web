@@ -41,6 +41,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('serviceModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalClose = document.getElementById('modalClose');
+
+  const serviceDetails = {
+    'AI Mobile App': {
+      title: 'AI Mobile App Development',
+      content: `Prabony AI creates intelligent and future-ready mobile applications that go beyond basic functionality—they think, learn, and adapt. By leveraging cutting-edge AI technologies such as machine learning, natural language processing (NLP), and computer vision, our apps offer predictive user experiences, intelligent automation, and highly personalized content.<br><br>Our mobile applications are intuitive, responsive, and scalable—built to perform seamlessly across both Android and iOS platforms. With AI deeply embedded at their core, these apps are not just smart—they’re transformative. Prabony AI ensures that every mobile solution we deliver empowers businesses to innovate, engage users meaningfully, and stay ahead in a fast-evolving digital landscape.`
+    },
+    'AI Web App': {
+      title: 'AI Web App Development',
+      content: `Prabony AI specializes in building powerful web applications infused with AI to deliver dynamic, data-driven experiences. These web apps are designed to analyze real-time behavior, predict outcomes, and interact intelligently with users using technologies like natural language processing, computer vision, and recommendation systems.<br><br>Whether it's a smart dashboard, AI-powered chatbot, or a personalized user portal, our web apps are responsive, secure, and optimized for performance. Prabony AI ensures your online platforms are not only functional but future-ready, giving your business a significant digital edge.`
+    },
+    'AI Agents': {
+      title: 'AI Agents',
+      content: `Prabony AI builds autonomous agents that simulate human-like decision-making and interaction using artificial intelligence. These agents can operate across platforms, manage tasks, and converse with users naturally, improving customer experience and productivity.<br><br>With advanced machine learning models, reinforcement learning, and NLP, our AI agents adapt over time, becoming smarter with usage. From chatbots to intelligent assistants, Prabony AI empowers businesses with agents that reduce manual effort and increase efficiency.`
+    },
+    'AI Automation': {
+      title: 'AI Automation',
+      content: `Prabony AI helps businesses automate complex workflows and repetitive tasks using artificial intelligence. Our solutions integrate with existing systems to streamline operations, reduce errors, and increase overall speed and accuracy.<br><br>From intelligent document processing to automated customer interactions and predictive maintenance, we use AI to improve every part of your workflow. Prabony AI enables you to scale faster, save costs, and shift your human capital toward higher-value work.`
+    },
+    'AI Design': {
+      title: 'AI Design',
+      content: `Prabony AI offers creative AI-powered design tools that help teams generate content, optimize layouts, and customize user experiences. From generative art to real-time design feedback, we use AI to accelerate and enhance the creative process.<br><br>Whether you're designing branding elements, product visuals, or user interfaces, our AI solutions enable creativity with speed and precision. Let Prabony AI elevate your design workflow with automation and intelligence.`
+    },
+    'AI SaaS': {
+      title: 'AI SaaS Development',
+      content: `Prabony AI develops scalable Software-as-a-Service (SaaS) platforms powered by artificial intelligence. Our platforms help organizations deploy intelligent tools—such as smart dashboards, prediction engines, and AI-driven automation—directly to the cloud.<br><br>Whether you're targeting retail, finance, education, or health sectors, we build cloud-native SaaS solutions that combine robust backend systems with user-friendly interfaces and powerful AI capabilities. With Prabony AI, your SaaS becomes smarter and more impactful.`
+    }
+  };
+
+  document.querySelectorAll('.btn-read-more').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const card = e.target.closest('.service-card');
+      const title = card.querySelector('h3').textContent.trim();
+
+      if (serviceDetails[title]) {
+        modalTitle.textContent = serviceDetails[title].title;
+        modalDescription.innerHTML = serviceDetails[title].content;
+        modal.style.display = 'flex';
+      }
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
 
 
 // FAQ accordion functionality
