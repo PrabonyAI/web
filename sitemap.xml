@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.prabonyai.in/</loc>
+    <lastmod>2025-07-07</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Blog Page -->
+  <url>
+    <loc>https://www.prabonyai.in/blog.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Position / Jobs Page -->
+  <url>
+    <loc>https://www.prabonyai.in/position.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
+<!-- End of sitemap.xml -->
