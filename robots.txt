@@ -11,6 +11,6 @@ User-agent: facebookexternalhit
 Allow: /
 
 User-agent: *
-Disallow:
+Allow:
 
 Sitemap: https://www.prabonyai.in/sitemap.xml
