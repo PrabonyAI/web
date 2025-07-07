@@ -260,6 +260,68 @@ h1, h2, h3, h4, h5, h6 {
     color: #cccccc;
     margin-bottom: 1.5rem;
 }
+/* Service Modal (Dark Theme) */
+.service-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  /*box-shadow: 0 0 20px #00ffc3;*/
+  animation: fadeIn 0.4s ease-in-out;
+  position: relative;
+  color: #ccc;
+}
+
+.modal-content h2 {
+  color: #00ffc3;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #00ffc3;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 
@@ -1064,6 +1126,39 @@ h1, h2, h3, h4, h5, h6 {
 .desktop-only {
     display: block;
 }
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content p {
+    font-size: 0.95rem;
+  }
+
+  .modal-close {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .modal-content p {
+    font-size: 0.9rem;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hamburger {
@@ -1072,6 +1167,13 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     position: relative;
   }
+.testimonial-card,
+.portfolio-card,
+.team-card,
+.service-card,
+.blog-card {
+  box-shadow: none !important;
+}
 
   .nav-menu {
     display: none;
