@@ -94,6 +94,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn-read-more:hover {
@@ -1002,7 +1003,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .blog-card:hover {
     transform: translateY(-5px);
-    border-color: #007BFF;
+    border-color: #00ffc3;
 }
 
 .blog-card.featured {
