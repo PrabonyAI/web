@@ -129,17 +129,6 @@ body {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-.nav-menu {
-    display: none;
-    flex-direction: column;
-    background: #000; /* or your theme color */
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-}
-
 .nav-menu.active {
     display: flex;
 }
