@@ -248,6 +248,32 @@ window.addEventListener('resize', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuBtn && closeBtn && navLinks) {
+        // Open mobile menu
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.add('active');
+        });
+
+        // Close mobile menu
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+
+        // Close menu on link click (optional)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
+
+
 // Service descriptions data
 const serviceData = {
     "AI Mobile App": `Prabony AI creates intelligent and future-ready mobile applications that go beyond basic functionality—they think, learn, and adapt. By leveraging cutting-edge AI technologies such as machine learning, natural language processing (NLP), and computer vision, our apps offer predictive user experiences, intelligent automation, and highly personalized content.
