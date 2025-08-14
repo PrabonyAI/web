@@ -131,6 +131,29 @@ body {
 
 .nav-menu {
     display: none;
+    flex-direction: column;
+    background: #000; /* or your theme color */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: none;
     align-items: center;
     background: white;
     border: 1px solid #e5e7eb;
