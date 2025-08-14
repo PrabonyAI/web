@@ -7,526 +7,365 @@
     <meta name="description" content="Prabony AI helps businesses scale with cutting-edge AI development, automation, and SaaS solutions in India. Build smart, efficient systems with our AI experts." />
     <meta name="keywords" content="Prabony AI, AI development, AI automation, AI services India, machine learning">
     <meta name="author" content="Prabony AI">
-    <meta property="og:title" content="Prabony AI – AI Development & Automation Services">
-    <meta property="og:description" content="Explore advanced AI services with Prabony AI – trusted partner in smart automation and SaaS solutions.">
-    <meta property="og:image" content="/images/fabicon.avif">
-    <meta property="og:url" content="https://www.prabonyai.in/">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/images/fabicon.avif" type="image/avif">
+    <link rel="icon" href="/images/fab.avif" type="image/avif">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Helvetica:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://www.prabonyai.in/" />
 </head>
 <body>
-    <!-- Header/Nav Bar -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="#home">
-                        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.avif" alt="Prabony AI Logo" class="logo">
+    <div class="min-h-screen bg-white overflow-hidden">
+            
+            <!-- Navigation -->
+            <nav class="navbar">
+                <div class="nav-logo">       
+                    <div class="logo-icon-main">
+                        <img src="./images/l.png" alt="Logo" class="logo-image">
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-button" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-item active">
+                        <span>Home</span>
+                    </a>
+                    <a href="services.html" class="nav-item">
+                        <span>Services</span>
+                    </a>
+                    <a href="blogs.html" class="nav-item">
+                        <span>Blogs</span>
+                    </a>
+                    <a href="about.html" class="nav-item">
+                        <span>About Us</span>
+                    </a>
+                    <a href="contact.html" class="nav-item">
+                        <span>Contact Us</span>
                     </a>
                 </div>
-                <ul class="nav-menu" id="nav-links"> <!-- Changed ID to nav-links -->
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="mobile-only">
-                        <button class="nav-close" id="closeBtn" aria-label="Close menu"> <!-- Changed ID to closeBtn -->
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </li>
-                </ul>
-                <div class="nav-buttons desktop-only">
-                    <a href="#contact" class="btn-primary">Let's Talk</a>
-                </div>
-                <button class="hamburger" id="menuBtn" aria-label="Open menu"> <!-- Changed ID to menuBtn -->
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
+                <!-- Mobile Navigation -->
+                <div class="mobile-menu">
+                    <a href="index.html" class="mobile-nav-item active">Home</a>
+                    <a href="services.html" class="mobile-nav-item">Services</a>
+                    <a href="blogs.html" class="mobile-nav-item">Blogs</a>
+                    <a href="about.html" class="mobile-nav-item">About Us</a>
+                    <a href="contact.html" class="mobile-nav-item">Contact Us</a>
+                </div>
+            </nav>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Hero Content -->
             <div class="hero-content">
-                <h1 class="hero-title">Happy Birthday Shanu Priya</h1>
-                <p class="hero-summary">Wishing our creative director a warm and happy birthday , we really appreciate all your work and contribution at Prabony AI</p>
-                <a href="https://www.linkedin.com/in/shanu-priya-527b2922a/" class="btn-primary hero-cta">Wish Her</a>
-                <p class="disclaimer"></p>
+                <div class="hero-container">
+                    <div class="hero-tag">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="20" fill="white"/>
+                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
+                        </svg>
+                        <span>Your Vision, Our AI</span>
+                    </div>
+                    <h1 class="hero-title">Prabony AI helps businesses to scale with AI</h1>
+                    <p class="hero-description">We design and deliver intelligent, scalable AI solutions that transform how businesses operate, compete, and grow in the digital age.</p>
+                    <a href="services.html" class="section-link">
+                    <button class="hero-btn">
+                        Discover Services
+                    </button>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Vision & Purpose Section -->
-    <section id="about" class="vision-purpose">
+        <!-- Industries Section -->
+        <section class="industries" id="industries">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-text">
+                        <p class="section-description">At Prabony AI, we are dedicated to pushing the <span class="highlight">boundaries of artificial intelligence.</span> Our mission is to develop <span class="highlight">cutting-edge AI models that transform</span> industries, enhance human capabilities, and drive innovation.</p>
+                    </div>
+                </div>
+            </div>
+                <div class="desktop-layout">
+                <!-- First Column - Stats -->
+                <div class="card-column">
+                    <div class="card-column-flex">
+                        <div class="stats-card">
+                            <div class="stats-content">
+                                <h2 class="stats-number">80%</h2>
+                                <p class="stats-text">Our AI solutions are designed to cater to a wide range of industries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="gray-card">
+                            <p class="gray-card-text">Developing Advanced AI Capabilities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Column - AI Mobile App -->
+                <div class="card-column offset-1">
+                    <div class="mobile-app-card">
+                        <div class="mobile-app-title">AI Mobile<br>App</div>
+                    </div>
+                </div>
+
+                <!-- Third Column - Services -->
+                <div class="card-column offset-2">
+                    <div class="services-card">
+                        <div class="services-title">Explore our<br>services</div>
+                        <a href="contact.html" class="section-link">
+                            <button class="services-button">Get in touch</button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fourth Column - Healthcare -->
+                <div class="card-column offset-1">
+                    <div class="healthcare-card">
+                        <div class="healthcare-label">Healthcare</div>
+                    </div>
+                </div>
+
+                <!-- Fifth Column - Finance & Building Future -->
+                <div class="card-column">
+                    <div class="card-column-flex gap-small">
+                        <div class="finance-card">
+                            <div class="finance-label"></div>
+                        </div>
+                        
+                        <div class="orange-card">
+                            <p class="orange-card-text">Building the Future<br>of AI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="20" fill="white"/>
+                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
+                        </svg>
+                        <span>Our Services</span>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/b6efb6b8ac20d3e115b22619c8bc9ace7e6b5f2f?width=720" alt="AI Agents" class="service-image">
+                        <div class="service-content">
+                            <p class="service-category">Build</p>
+                            <h3 class="service-title">AI Agents</h3>
+                            <p class="service-description">Our NLP models enhance communication and understanding between humans and machines.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/211af52b32e06aa98376f4681bd68e0add4f9097?width=720" alt="AI Automation" class="service-image">
+                        <div class="service-content">
+                            <p class="service-category">Build</p>
+                            <h3 class="service-title">AI Automation</h3>
+                            <p class="service-description">Our computer vision models interpret visual data to unlock new possibilities. Applications include: Object Detection</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/ff0201d3081c7bfe3c9aa1447412856dfe04bf9f?width=720" alt="AI SaaS" class="service-image">
+                        <div class="service-content">
+                            <p class="service-category">Build</p>
+                            <h3 class="service-title">AI Saas</h3>
+                            <p class="service-description">We understand that each business has unique needs. Our custom AI solutions are tailored to solve specific challenges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-footer">
+                    <a href="services.html" class="section-link">
+                        <button class="explore-btn">Explore More</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blogs Section -->
+        <section class="blogs-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="20" fill="white"/>
+                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
+                        </svg>
+                        <span>Blogs</span>
+                    </div>
+                </div>
+
+                <div class="blogs-content">
+                    <div class="blogs-row">
+                        <div class="blog-card">
+                            <div class="blog-header">
+                                <h3 class="blog-title">AI Automation: Transforming How Businesses Work</h3>
+                                <a href="b1.html" target="_blank" rel="noopener noreferrer" class="blog-detail-link">
+                            <div class="blog-detail-link">
+                                <span>Read More</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.99959 1.66797C5.39959 1.66797 1.66626 5.4013 1.66626 10.0013C1.66626 14.6013 5.39959 18.3346 9.99959 18.3346C14.5996 18.3346 18.3329 14.6013 18.3329 10.0013" stroke="#666666" stroke-width="1.575" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.8333 9.16781L17.6666 2.33447" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.3326 5.69297V1.66797H14.3076" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </a>
+                            </div>
+                            <p class="blog-category">Automation</p>
+                            <p class="blog-description">Prabony AI’s intelligent automation services help businesses streamline operations, reduce manual work, and boost productivity using cutting-edge AI technologies. Discover the future of efficiency today.</p>
+                        </div>
+
+                        <div class="blog-card">
+                            <div class="blog-header">
+                                <h3 class="blog-title">AI App: Build Smart, Scalable, and Intelligent Apps</h3>
+                                <a href="b2.html" target="_blank" rel="noopener noreferrer" class="blog-detail-link">
+                            <div class="blog-link">
+                                <span>Read More</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.99959 1.66797C5.39959 1.66797 1.66626 5.4013 1.66626 10.0013C1.66626 14.6013 5.39959 18.3346 9.99959 18.3346C14.5996 18.3346 18.3329 14.6013 18.3329 10.0013" stroke="#666666" stroke-width="1.575" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.8333 9.16781L17.6666 2.33447" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.3326 5.69297V1.66797H14.3076" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </a>
+                            </div>
+                            <p class="blog-category">App</p>
+                            <p class="blog-description">EfficientNet B-style architecture with 6 convolutional blocks. This B-style model has width_coefficient=1.0 and depth_coefficient=1.0.</p>
+                        </div>
+                    </div>
+
+                    <div class="blogs-row">
+                        <div class="blog-card">
+                            <div class="blog-header">
+                                <h3 class="blog-title">Prabony AI Founder Rohan R Gupta Raises $1M at $50M Valuation from Angel Investor</h3>
+                                <a href="b3.html" target="_blank" rel="noopener noreferrer" class="blog-detail-link">
+                            <div class="blog-link">
+                                <span>Read More</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.99959 1.66797C5.39959 1.66797 1.66626 5.4013 1.66626 10.0013C1.66626 14.6013 5.39959 18.3346 9.99959 18.3346C14.5996 18.3346 18.3329 14.6013 18.3329 10.0013" stroke="#666666" stroke-width="1.575" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.8333 9.16781L17.6666 2.33447" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.3326 5.69297V1.66797H14.3076" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </a>
+                            </div>
+                            <p class="blog-category">Growth</p>
+                            <p class="blog-description">At just 20, Rohan R Gupta—founder of Prabony AI—has raised $1 million at a $50 million valuation from Angel Investor. Discover how this young millionaire is shaping the future of AI.</p>
+                        </div>
+
+                        <div class="blog-card">
+                            <div class="blog-header">
+                                <h3 class="blog-title">AI Agents: The Smartest Way to Automate Workflows</h3>
+                                <a href="b4.html" target="_blank" rel="noopener noreferrer" class="blog-detail-link">
+                            <div class="blog-link">
+                                <span>Read More</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.99959 1.66797C5.39959 1.66797 1.66626 5.4013 1.66626 10.0013C1.66626 14.6013 5.39959 18.3346 9.99959 18.3346C14.5996 18.3346 18.3329 14.6013 18.3329 10.0013" stroke="#666666" stroke-width="1.575" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.8333 9.16781L17.6666 2.33447" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.3326 5.69297V1.66797H14.3076" stroke="#666666" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </a>
+                            </div>
+                            <p class="blog-category">Agents</p>
+                            <p class="blog-description">Discover how Prabony AI builds intelligent AI Agents that can automate business processes, chat with users, and make decisions in real time. Unlock the power of autonomous systems for your enterprise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-footer">
+                    <a href="blogs.html" class="section-link">
+                    <button class="explore-btn">Explore More</button>
+                </a>
+               </div>
+            </div>
+        </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="vision-content">
-                <div class="vision-left">
-                    <h2 class="section-heading">Vision & Purpose</h2>
+                <div class="section-header">
+                    <div class="section-tag">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="20" fill="white"/>
+                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
+                        </svg>
+                        <span>Feedbacks</span>
+                    </div>
                 </div>
-                <div class="vision-right">
-                    <p class="vision-text">Prabony AI is dedicated to revolutionizing business operations through cutting-edge artificial intelligence solutions. We specialize in creating intelligent systems that automate processes, enhance decision-making, and drive sustainable growth across various industries. Our domain expertise spans machine learning, natural language processing, computer vision, and predictive analytics.</p>
-                    <p class="vision-text">Our work spans industries—from retail and fintech to healthcare and education—offering tailored AI services that drive automation, enhance decision-making, and deliver measurable value.</p>
-                    <div class="vision-buttons">
-                        <a href="#services" class="btn-primary">Explore Services</a>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/1301787000da041f4001887c4357ee532817a7c1?width=248" alt="Bessie Cooper" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>Prabony's AI models have transformed our business operations. The accuracy and efficiency of their image recognition system have significantly reduced our processing time. We highly recommend their services!</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Bessie Cooper</h4>
+                                <span>CEO, Bright Visions Inc</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/908992f7cbabfc51d0cfc7255d21e896614cfd7e?width=248" alt="Michael Rodriguez" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>Working with Prabony AI has been a game-changer for us. Their natural language processing models have enabled us to better understand and respond to customer queries, enhancing our overall customer service experience.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Michael Rodriguez</h4>
+                                <span>Product Owner, Innovate Corp.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/02b87a568c3fe78e4c6b80d51d0e7ffbc3817491?width=248" alt="David Lee" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>The predictive analytics model from Prabony AI has provided us with invaluable insights, helping us make data-driven decisions that have boosted our sales and optimized our inventory management</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>David Lee</h4>
+                                <span>CFO, Financial Horizons</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/5088071bd4b064792473df59d7f805b27f4e24da?width=248" alt="Emily Thompson" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>Prabony AI's custom AI solution was exactly what we needed. Their team was professional, responsive, and delivered a model that exceeded our expectations. Our workflow has never been smoother.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Emily Thompson</h4>
+                                <span>CTO , Tech Innovators Ltd.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Services -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-heading text-center">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>AI Mobile App </h3>
-                    <p>Create intelligent mobile applications with AI-powered features for enhanced user experiences and business efficiency.</p>
-                    <button class="btn-read-more">Read More</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>AI Web App </h3>
-                    <p>Build sophisticated web applications integrated with AI capabilities for smarter business solutions.</p>
-                    <button class="btn-read-more">Read More</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>AI Agents </h3>
-                    <p>Develop intelligent agents that can automate tasks, make decisions, and interact with users naturally.</p>
-                    <button class="btn-read-more">Read More</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>AI Automation</h3>
-                    <p>Streamline business processes with intelligent automation solutions that reduce costs and improve efficiency.</p>
-                    <button class="btn-read-more">Read More</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>AI Design</h3>
-                    <p>Leverage AI for creative design solutions, from generative art to intelligent design optimization.</p>
-                    <button class="btn-read-more">Read More</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>AI SaaS </h3>
-                    <p>Build scalable AI-powered Software as a Service solutions for various business verticals.</p>
-                    <button class="btn-read-more">Read More</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="service-modal" id="serviceModal">
-      <div class="modal-content">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <h2 id="modalTitle">Service Title</h2>
-        <p id="modalDescription">Detailed content will be loaded here...</p>
-      </div>
-    </div>
-
-    <!-- Portfolio Section -->
- <!--<section class="portfolio">
-    <h2 class="section-heading portfolio-heading">Our Portfolio</h2>
-    <div class="portfolio-row">
-      <div class="portfolio-card">
-  <img src="https://via.placeholder.com/48" alt="Bot Icon" class="icon-img" />
-  <div class="icon" data-lucide="bot"></div>
-  <p class="description">
-    AI-powered customer service chatbot that reduced response time by 80% and increased customer satisfaction scores.
-  </p>
-  <button class="btn-know-more">Know More</button>
-</div>
-
-      <div class="portfolio-card">
-        <img src="https://via.placeholder.com/48" alt="Smartphone icon " class="icon-img" />
-        <div class="icon" data-lucide="smartphone"></div>
-        <p class="description">
-          Mobile health app with AI diagnosis features, serving over 50,000 users with 95% accuracy in health predictions.
-        </p>
-        <button class="btn-know-more">Know More</button>
-      </div>
-      <div class="portfolio-card">
-        <img src="https://via.placeholder.com/48" alt="Globe icon " class="icon-img" />
-        <div class="icon" data-lucide="globe"></div>
-        <p class="description">
-          E-commerce recommendation engine that increased sales conversion by 40% through personalized product suggestions.
-        </p>
-        <button class="btn-know-more">Know More</button>
-      </div>
-      <div class="portfolio-card">
-        <img src="https://via.placeholder.com/48" alt="Bot Icon" class="icon-img" />
-        <div class="icon" data-lucide="bot"></div>
-        <p class="description">
-          Automated document processing system that reduced manual work by 90% in financial institutions.
-        </p>
-        <button class="btn-know-more">Know More</button>
-      </div>
-      <div class="portfolio-card">
-        <img src="https://via.placeholder.com/48" alt="Smartphone icon" class="icon-img" />
-        <div class="icon" data-lucide="smartphone"></div>
-        <p class="description">
-          Voice-enabled smart home application with natural language processing for seamless user interaction.
-        </p>
-        <button class="btn-know-more">Know More</button>
-      </div>
-      <div class="portfolio-card">
-        <img src="https://via.placeholder.com/48" alt="Globe icon" class="icon-img" />
-        <div class="icon" data-lucide="globe"></div>
-        <p class="description">
-          Predictive analytics dashboard for supply chain optimization, reducing costs by 25% for logistics companies.
-        </p>
-        <button class="btn-know-more">Know More</button>
-      </div>
-    </div>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script> -->
-
-    <!-- Trusted Partners -->
-    <!--<section class="partners">
-        <div class="container">
-            <div class="partners-content">
-                <div class="partners-left">
-                    <h2 class="section-heading">Our Trusted Partners</h2>
-                    <p>We collaborate with industry leaders to deliver exceptional AI solutions that drive innovation and growth.</p>
-                    <div class="partners-buttons">
-                        <a href="#contact" class="btn-primary">Collaborate with Us</a>
-                    </div>
-                </div>
-                <div class="partners-right">
-                    <div class="partners-logos">
-                        <div class="partner-logo">
-                            <img src="https://via.placeholder.com/120x60" alt="Partner 1">
-                        </div>
-                        <div class="partner-logo">
-                            <img src="https://via.placeholder.com/120x60" alt="Partner 2">
-                        </div>
-                        <div class="partner-logo">
-                            <img src="https://via.placeholder.com/120x60" alt="Partner 3">
-                        </div>
-                        <div class="partner-logo">
-                            <img src="https://via.placeholder.com/120x60" alt="Partner 4">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Customer Testimonials -->
-   <!-- <section class="testimonials desktop-only">
-  <div class="container">
-    <div class="testimonials-content">
-      <div class="testimonials-left">
-        <h2 class="section-heading">Customer Testimonials</h2>
-        <p>Hear what our clients say about their experience working with Prabony AI and the transformative impact of our solutions.</p><br/>
-        <p> </p>
-        <div class="button-group">
-          <a href="#contact" class="btn-primary">Feedback</a>
-        </div>
-      </div>
-      <div class="testimonials-right">
-        <div class="testimonial-scroller">
-          <div class="testimonials-column up-scroll">
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Prabony AI transformed our business processes with their intelligent automation solutions. Our efficiency increased by 60%."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"The AI chatbot they developed for us has revolutionized our customer service. Highly recommended!"</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Exceptional AI solutions that delivered beyond our expectations. Professional team with deep expertise."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Their computer vision solution helped us achieve 95% accuracy in our quality control process."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Thanks to Prabony AI, our data insights are faster and more accurate than ever!"</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-          </div>
-
-          <div class="testimonials-column down-scroll">
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Their AI tools improved our decision-making process across departments."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Impressed by their innovation and ability to deliver under tight deadlines."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"The team is friendly, professional, and understands client needs perfectly."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p>"Our operational cost went down while productivity shot up. Thanks Prabony!"</p>
-              <p class="testimonial-name">— Priya K., Customer Support Head</p>
-            </div>
-          </div> -->
-          <!-- Shadows -->
-         <!-- <div class="fade fade-top"></div>
-          <div class="fade fade-bottom"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
-<!-- Mobile Testimonials (X-axis scroll) -->
-<!--<div class="mobile-testimonials testimonial-scroller-mobile mobile-only">
-  <h2 class="section-heading" style="text-align:center;margin-top: 3rem;">Customer Testimonials</h2>
-          <p style="text-align: center;color: #ccc;">Hear what our clients say about their experience working with Prabony AI and the transformative impact of our solutions.</p><br/>
-        <p> </p>
-        <div class="button-group">
-          <a href="#contact" class="btn-primary" style="width: 80%;margin-left: 2.2rem;">Feedback</a>
-        </div>
-  <div class="testimonial-row">
-    <div class="testimonials-spacer"></div>
-    <div class="testimonial-card">
-      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <p>"Prabony AI transformed our business processes with their intelligent automation solutions."</p>
-      <p class="testimonial-name">— Priya K., Customer Support Head</p>
-    </div>
-    <div class="testimonial-card">
-      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <p>"The AI chatbot they developed for us has revolutionized our customer service. Highly recommended!"</p>
-      <p class="testimonial-name">— Anil S., Product Manager</p>
-    </div>
-    <div class="testimonial-card">
-      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
-      <p class="testimonial-name">— Meera R., CTO</p>
-    </div>
-        <div class="testimonial-card">
-      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
-      <p class="testimonial-name">— Meera R., CTO</p>
-    </div>
-        <div class="testimonial-card">
-      <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      <p>"Great experience from onboarding to deployment. Their support is top-notch."</p>
-      <p class="testimonial-name">— Meera R., CTO</p>
-    </div>
-  </div>
-</div> -->
-
-
-    <!-- Our Team -->
-    <section class="team">
-  <div class="container">
-    <div class="team-heading">
-      <h2 class="section-heading">Our Founding Team</h2>
-      <p class="team-subheading">The Pillars of Prabony AI</p>
-    </div>
-
-    <div class="team-row">
-      <div class="team-card">
-        <img src="/images/rohan.avif" alt="Rohan Gupta">
-        <h3>Rohan Gupta</h3>
-        <p>Founder</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/rohan-r-gupta-b09916243/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img src="/images/palak.avif" alt="Palak Srivastava">
-        <h3>Palak Srivastava</h3>
-        <p>CEO</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/palak-srivastava0901/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img src="/images/nakul.avif" alt="Nakul Saraf">
-        <h3>Nakul Saraf</h3>
-        <p>CTO</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/nakul-saraf-6b8164319/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img src="/images/shanu.avif" alt="Shanu Priya">
-        <h3>Shanu Priya</h3>
-        <p>Creative Director</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/shanu-priya-527b2922a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img src="/images/nikita.avif" alt="Nikita Jain">
-        <h3>Nikita Jain</h3>
-        <p>Head HR</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/nikitajain-feb3/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!--<div class="team-cta">
-      <p>We're Hiring</p>
-      <a href="position.html" class="btn-primary">Open Positions</a>
-    </div>-->
-  </div>
-</section>
-<section class="cta">
-        <div class="container" style="text-align:center; padding: 3rem 0; background-color: #1a1a1a;">
-            <h2 class="section-heading">Learn More About AI with PrabonyAI</h2>
-            <p style="color:#ccc;">Stay updated with our expert insights, use cases, and industry trends.</p><br/>
-            <div class="mobile-only">
-              <a href="blog.html" class="btn-primary" style="width: 80%">Read Our Blog</a>
-            </div>
-            <div class="desktop-only">
-              <a href="blog.html" class="btn-primary">Read Our Blog</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQs Section -->
-    <section class="faqs">
-        <div class="container">
-            <h2 class="section-heading text-center">Frequently Asked Questions</h2>
-            <div class="faq-items">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What types of AI solutions do you provide?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We provide a comprehensive range of AI solutions including mobile and web app development, AI agent development, automation solutions, design AI, and SaaS development.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How long does it take to develop an AI solution?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The timeline varies depending on the complexity of the project. Simple automation solutions can be completed in 2-4 weeks, while comprehensive AI applications may take 3-6 months.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do you provide ongoing support and maintenance?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we provide comprehensive support and maintenance services to ensure your AI solutions continue to perform optimally and evolve with your business needs.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What industries do you serve?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We serve various industries including healthcare, finance, e-commerce, manufacturing, education, and technology. Our solutions are customized to meet specific industry requirements.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How do you ensure data security and privacy?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We implement industry-standard security protocols, encryption, and comply with data protection regulations like GDPR. Your data security and privacy are our top priorities.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-cta">
-                <a href="#contact" class="btn-primary">Contact</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Us -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-header">
-                <h2 class="section-heading text-center">Let's build the future of the AI together.</h2>
-                <p class="contact-subtitle">Why don't you join us</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Type your name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Type your id" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Type your message" rows="5" required></textarea>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="terms" required>
-                            <label for="terms">I agree to the terms and conditions</label>
-                        </div>
-                        <button type="submit" class="btn-primary">Submit</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@prabonyai.in</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 9523866371</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>IP-2&3, Opp. Chokhi Dhani, Phase IV, Sitapura Industrial Area, Sitapura, Jaipur, Laxmipura at Nataniwala, Rajasthan 302022</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
        <footer class="footer">
@@ -551,14 +390,14 @@
      
         <div class="footer-column">
           <h3>Quick Links</h3>
-          <a href="index.html#about">About</a>
-          <a href="index.html#services">Services</a>
-          <a href="index.html#team">Team</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
         </div>
         <div class="footer-column">
           <h3>More</h3>
-          <a href="blog.html">Blog</a>
+          <a href="blogs.html">Blog</a>
           <a href="index.html#portfolio">Career</a>
           <a href="#">Case Studies</a>
           <a href="#">Help Center</a>
@@ -583,20 +422,8 @@
     </div>
   </div>
 </footer>
-  <!-- 1) Include the confetti script -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    </div>
 
-  <!-- 2) Invoke the confetti on page load -->
-  <script>
-    window.addEventListener('load', function() {
-      confetti({
-        particleCount: 200,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    });
-  </script>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
