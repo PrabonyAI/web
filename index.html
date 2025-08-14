@@ -583,7 +583,19 @@
     </div>
   </div>
 </footer>
+  <!-- 1) Include the confetti script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
+  <!-- 2) Invoke the confetti on page load -->
+  <script>
+    window.addEventListener('load', function() {
+      confetti({
+        particleCount: 200,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    });
+  </script>
 
     <script src="scripts.js"></script>
 </body>
