@@ -35,6 +35,19 @@ body {
     overflow: hidden;
 }
 
+.independence-banner {
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.ind-banner-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
