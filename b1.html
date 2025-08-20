@@ -14,15 +14,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://www.prabonyai.in/" />
 </head>
-<body>
-    <div class="min-h-screen bg-white overflow-hidden">
+<body class="dark-mode">
+    <div class="min-h-screen overflow-hidden">
             
             <!-- Navigation -->
             <nav class="navbar">
+                <div class="nav-left">
                 <div class="nav-logo">       
                     <div class="logo-icon-main">
-                        <img src="./images/l.png" alt="Logo" class="logo-image">
+                        <img src="./images/l.png" alt="Logo Light" class="logo-image logo-light">
+                        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Logo Dark" class="logo-image logo-dark">
                     </div>
+                </div>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -33,6 +36,7 @@
                 </button>
 
                 <!-- Desktop Navigation -->
+                 <div class="nav-center">
                 <div class="nav-menu">
                     <a href="index.html" class="nav-item">
                         <span>Home</span>
@@ -50,17 +54,19 @@
                         <span>Contact Us</span>
                     </a>
                 </div>
+                </div>
 
                 <!-- Mobile Navigation -->
                 <div class="mobile-menu">
-                    <a href="index.html" class="mobile-nav-item">Home</a>
+                    <a href="index.html" class="mobile-nav-item active">Home</a>
                     <a href="services.html" class="mobile-nav-item">Services</a>
-                    <a href="blogs.html" class="mobile-nav-item active">Blogs</a>
+                    <a href="blogs.html" class="mobile-nav-item">Blogs</a>
                     <a href="about.html" class="mobile-nav-item">About Us</a>
                     <a href="contact.html" class="mobile-nav-item">Contact Us</a>
                 </div>
             </nav>
-                <!-- BLOG CONTENT -->
+
+            <!-- BLOG CONTENT -->
     <section class="blog-detail-section">
         <div class="container">
             <h1 class="blog-detail-title">AI Automation: Transforming Business Efficiency in the Digital Era</h1>
@@ -157,6 +163,6 @@
   </div>
 </footer>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
