@@ -99,6 +99,9 @@ body {
         display: block;
         margin-top: -1.5rem;
     }
+    .logo-dark {
+        margin-top: 0 !important; /* Fix dark mode positioning without affecting light mode */
+    }
     .mobile-menu.open .logo-image {
         display: block;
         margin-bottom: 16px;
