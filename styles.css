@@ -18,6 +18,7 @@ body {
     padding: 0 24px;
 }
 
+
 /* Utility Classes */
 .text-black { color: #181818; }
 .text-gray { color: #666; }
@@ -35,39 +36,40 @@ body {
     overflow: hidden;
 }
 
-.independence-banner {
-    width: 100%;
-    text-align: center;
-    background-color: #fff;
-}
-
-.ind-banner-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
 /* Hero Section */
 .hero-section {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh; /* slightly less than 100vh for consistency */
     background: linear-gradient(to bottom right, #f9fafb, #fff);
-    display:inline;
-    margin: 20px;
-    flex-direction: column;
+    display: flex;
+    align-items: center;   /* vertical centering */
+    justify-content: center;
+    padding: 80px 0;       /* uniform top/bottom spacing */
 }
+
 
 
 /* Navigation */
 .navbar {
-    position: relative;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center container horizontally */
+  background: #ffffff;
+  border-bottom: 1px solid #E0E0E0;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  margin-right: auto; /* keep logo stuck to the left */
+}
+
+.nav-center {
+  display: flex;
+  gap: 24px;          /* space between links */
+  justify-content: center;
 }
 
 .nav-logo {
@@ -157,13 +159,14 @@ body {
 }
 
 .nav-menu {
-    display: none;
-    align-items: center;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 9999px;
-    padding: 8px;
-    backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #E0E0E0;
+  background: #fff;
+  margin-left: 0 auto; /* adjust as needed */
+  backdrop-filter: blur(30px);
+  overflow: hidden;
 }
 
 .mobile-menu {
@@ -228,15 +231,17 @@ body {
 
 .nav-item {
     display: flex;
+    padding: 18px;
+    justify-content: center;
     align-items: center;
-    padding: 16px 20px;
-    text-decoration: none;
+    position: relative;
     color: #181818;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
     font-weight: 500;
-    font-size: 16px;
-    transition: background-color 0.2s;
-    border-radius: 9999px;
-    white-space: nowrap;
+    line-height: 24px;
+    text-decoration: none;
+    border-bottom: 4px solid transparent; /* reserve space so layout doesn’t jump */
 }
 
 @media (min-width: 1024px) {
@@ -247,11 +252,11 @@ body {
 }
 
 .nav-item:hover {
-    background-color: #f9fafb;
+   border-bottom: 4px solid #ddd; /* optional subtle hover line */
 }
 
 .nav-item.active {
-    border-bottom: 4px solid #181818;
+    border-bottom: 4px solid #181818; 
 }
 
 /* Hero Content */
@@ -266,13 +271,20 @@ body {
     padding: 0 24px;
     text-align: center;
 }
+/* Contact page hero - lift it slightly upward */
+.contact-hero {
+    margin-top: -50px;   /* adjust smaller value to move higher */
+    padding-top: 40px;  /* reduce padding compared to others */
+}
 
 .hero-container {
     max-width: 768px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
+    text-align: center;   /* ✅ ensures hero text is always centered */
+    align-items: center;  /* ✅ prevents it sticking left */
 }
 
 .hero-tag {
@@ -310,7 +322,7 @@ body {
 }
 
 .hero-title {
-    font-size: 48px;
+    font-size: 34px;
     font-weight: 500;
     line-height: 1.1;
     color: #181818;
@@ -324,7 +336,7 @@ body {
 }
 
 .hero-description {
-    font-size: 20px;
+    font-size: 14px;
     color: #666;
     line-height: 1.6;
     margin: 0;
@@ -370,7 +382,7 @@ body {
 }
 
 .section-description {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
     line-height: normal;
     color: #181818;
@@ -429,21 +441,12 @@ body {
     border-radius: 1.5rem;
     height: 22.25rem;            
     overflow: hidden;
-    background-color: #C8F167;
-    background-image: none;
+    background-image: url('./images/Wrap.png');
     background-size: cover;
     background-position: center;
 }
 
-.stats-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 5.5rem;
-    height: 2.5rem;
-    background-color: white;    
-}
+
 
 .stats-content {
     padding: 1.5rem;
@@ -451,7 +454,7 @@ body {
 }
 
 .stats-number {
-    font-size: 4.75rem;
+    font-size: 3.5rem;
     font-weight: 500;
     color: #000000;
     margin-bottom: 1rem;
@@ -868,6 +871,26 @@ body {
     line-height: 1.6;
 }
 
+.blog-read-btn {
+    display: inline-block;
+    white-space: nowrap;       /* keeps text on one line */
+    padding: 10px 24px;
+    background-color: #181818; /* black button */
+    color: #ffffff; /* white text */
+    border: none;
+    border-radius: 9999px;     /* pill shape */
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.blog-read-btn:hover {
+    background-color: #374151; /* dark gray hover */
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .blog-detail-title {
@@ -1139,7 +1162,14 @@ body {
         text-align: center;
         gap: 8px;
     }
+  .hero-section {
+    padding: 40px 0;   /* reduce spacing */
+    min-height: auto;  /* let height adapt naturally */
+  }
 
+  .hero-content {
+    margin-top: -20px; /* pull up slightly under nav */
+  }
     /* Section padding adjustments */
     .industries-section,
     .services-section,
@@ -1167,10 +1197,41 @@ body {
     .service-image {
         height: 200px;
     }
+    .service-detail-header {
+        flex-direction: column;   /* stack heading and button */
+        align-items: flex-start;  /* align left */
+        gap: 8px;                 /* small spacing between them */
+    }
+
+    .service-detail-link {
+        margin-top: 4px;          /* extra space below heading */
+    }
 
     .service-content {
         padding: 24px;
     }
+
+
+  .blogs-section {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 10px; /* adjust to prevent overflow */
+  }
+
+  .blogs-row {
+    padding-right: 16px;  /* match left spacing */
+    padding-left: 16px;   /* keep left spacing */
+  }
+
+  .blog-card {
+    width: 100%;
+    margin: 0 auto;       /* keeps card centered */
+  }
+
+  .blog-detail-card {
+    padding-right:  16px; /* match left spacing */
+    margin-left: -30px; /* adjust to prevent overflow */
+}
 
     .testimonial-card {
         flex-direction: column;
@@ -1476,7 +1537,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #666;
+    color: #fff;
     font-size: 14px;
     text-decoration: none;
 }
@@ -1558,12 +1619,6 @@ body {
 @media (min-width: 1024px) {
     .blogs-detail-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1400px) {
-    .blogs-detail-grid {
-        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -2069,9 +2124,11 @@ body.dark-theme .linkedin-icon a {
 .map-bg {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(-1deg, #232A39 12.58%, rgba(35, 42, 57, 0.00) 100.1%), url('https://api.builder.io/api/v1/image/assets/TEMP/9a81c96a4ecf64753ada8ed22b933b65d7a9bbc8?width=3184');
+    background-image: linear-gradient(-1deg, #fff 12.58%, rgba(35, 42, 57, 0.00) 100.1%), url('https://api.builder.io/api/v1/image/assets/TEMP/9a81c96a4ecf64753ada8ed22b933b65d7a9bbc8?width=3184');
     background-size: cover;
     background-position: center;
+    background-color: #ffffff;   /* white background */
+    filter: brightness(100%) invert(0); /* ensures it's not darkened */
 }
 
 .map-content {
@@ -2269,6 +2326,11 @@ body.dark-theme .linkedin-icon a {
         padding: 40px 24px;
     }
 
+    .contact-hero {
+        margin-top: 0;
+        padding-top: 40px;
+    }
+
     .contact-layout {
         flex-direction: column;
     }
@@ -2276,4 +2338,886 @@ body.dark-theme .linkedin-icon a {
     .contact-info-section {
         width: 100%;
     }
+}
+/* Blog Card Responsive Fix - Even Spacing on Mobile */
+
+@media (max-width: 768px) {
+    /* Blog Section Container */
+    .blogs-section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .blogs-detail-section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* Blog Grid Container */
+    .blogs-detail-grid {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .blogs-row {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Individual Blog Cards */
+    .blog-detail-card {
+        margin: 0 !important;
+        padding: 24px;
+        width: 100%;
+        box-sizing: border-box;
+        /* Remove the problematic negative margin */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .blog-card {
+        margin: 0;
+        width: 100%;
+        box-sizing: border-sizing;
+        padding: 24px;
+    }
+}
+
+/* Extra small screens - phones */
+@media (max-width: 480px) {
+    .blogs-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .blogs-detail-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .blog-detail-card,
+    .blog-card {
+        padding: 20px;
+    }
+}
+
+/* Default state - show light logo, hide dark logo */
+.logo-light {
+    display: block;
+}
+
+.logo-dark {
+    display: none;
+}
+
+/* If you also want to support manual dark mode toggle (optional) */
+body.dark-mode .logo-light,
+body.dark-theme .logo-light {
+    display: none;
+}
+
+body.dark-mode .logo-dark,
+body.dark-theme .logo-dark {
+    display: block;
+}
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: 128px 24px;
+            background: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px 8px 6px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 9999px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 32px;
+        }
+
+        .section-tag span {
+            font-weight: 500;
+            color: #181818;
+            font-size: 16px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            background: white;
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 32px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 500;
+            color: #181818;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        .faq-question:hover {
+            color: #666;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            max-height: 300px;
+            padding: 0 32px 24px;
+        }
+
+        .faq-answer-content {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            padding-top: 8px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 64px 16px;
+            }
+
+            .faq-question {
+                padding: 20px 24px;
+                font-size: 16px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 24px 20px;
+            }
+
+            .faq-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-question {
+                padding: 16px 20px;
+                font-size: 15px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 20px 16px;
+            }
+
+            .section-header {
+                margin-bottom: 48px;
+            }
+        }
+        
+@media (prefers-color-scheme: dark) {
+/* Dark Mode Root Variables */
+:root {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-muted: #666666;
+    --border-color: #333333;
+    --card-bg: #1f1f1f;
+    --hero-bg: #0a0a0a;
+}
+
+/* Base Dark Mode Styles */
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.logo-light {
+    display: none;
+}
+    
+.logo-dark {
+    display: block;
+}
+
+/* Navigation Dark Mode */
+.navbar {
+    background: rgba(15, 15, 15, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+}
+
+.nav-item {
+    color: var(--text-primary);
+}
+
+.nav-item:hover {
+    border-bottom: 4px solid #555;
+}
+
+.nav-item.active {
+    border-bottom: 4px solid var(--text-primary);
+}
+
+.nav-menu {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.mobile-menu {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.mobile-nav-item {
+    color: var(--text-primary);
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+    background-color: var(--bg-tertiary);
+}
+
+.mobile-menu-button {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.hamburger-line {
+    background: var(--text-primary);
+}
+
+/* Hero Section Dark Mode */
+.hero-section {
+    background: linear-gradient(to bottom right, var(--hero-bg), var(--bg-primary));
+}
+
+.hero-tag {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.hero-tag span {
+    color: var(--text-primary);
+}
+
+.hero-title {
+    color: var(--text-primary);
+}
+
+.hero-description {
+    color: var(--text-secondary);
+}
+
+.hero-btn {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.hero-btn:hover {
+    background: var(--text-secondary);
+}
+
+/* Industries Section Dark Mode */
+.stats-card {
+    /* Keep the background image but add dark overlay */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('./images/Wrap.png');
+}
+
+.stats-number {
+    color: var(--text-primary);
+}
+
+.stats-text {
+    color: var(--text-primary);
+}
+
+.gray-card {
+    background-color: var(--bg-tertiary);
+}
+
+.gray-card-text {
+    color: var(--text-primary);
+}
+
+.services-card {
+    background-color: var(--bg-secondary);
+}
+
+.services-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.services-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.orange-card {
+    background-color: var(--bg-secondary);
+}
+
+.orange-card-text {
+    color: var(--text-primary);
+}
+
+/* Services Section Dark Mode */
+.services-section {
+    background: var(--bg-secondary);
+}
+
+.section-tag {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+}
+
+.section-tag span {
+    color: var(--text-primary);
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.service-title {
+    color: var(--text-primary);
+}
+
+.service-description {
+    color: var(--text-secondary);
+}
+
+.explore-btn {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.explore-btn:hover {
+    background: var(--text-secondary);
+}
+
+/* Fix for service detail "Read More" buttons */
+.service-detail-link,
+.service-detail-link .blog-read-btn {
+    background: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
+    border: none !important;
+}
+
+.service-detail-link:hover,
+.service-detail-link .blog-read-btn:hover {
+    background: var(--text-secondary) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* Blogs Section Dark Mode */
+.blogs-section {
+    background: var(--bg-primary);
+}
+
+.blog-card,
+.blog-detail-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.blog-title,
+.blog-detail-title {
+    color: var(--text-primary);
+}
+
+.blog-description,
+.blog-detail-description {
+    color: var(--text-secondary);
+}
+
+.blog-link {
+    color: var(--text-secondary);
+}
+
+.blog-read-btn {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.blog-read-btn:hover {
+    background-color: var(--text-secondary);
+}
+
+/* Testimonials Section Dark Mode */
+.testimonials {
+    background: var(--bg-secondary);
+}
+
+.testimonials-title {
+    color: var(--text-primary);
+}
+
+.testimonials-title .highlight {
+    color: var(--text-secondary);
+}
+
+.quote-mark {
+    color: #333;
+}
+
+.testimonial-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.testimonial-content p {
+    color: var(--text-secondary);
+}
+
+.author-info h4 {
+    color: var(--text-primary);
+}
+
+.author-info span {
+    color: var(--text-secondary);
+}
+
+/* Footer Dark Mode */
+.footer {
+    background-color: #000;
+    color: var(--text-primary);
+}
+
+.footer-description {
+    color: var(--text-secondary);
+}
+
+.newsletter input[type="email"] {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.newsletter input[type="email"]::placeholder {
+    color: var(--text-muted);
+}
+
+.newsletter button {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.newsletter button:hover {
+    background-color: var(--text-secondary);
+}
+
+.newsletter-disclaimer {
+    color: var(--text-secondary);
+}
+
+.footer-column h3 {
+    color: var(--text-primary);
+}
+
+.footer-column a {
+    color: var(--text-secondary);
+}
+
+.footer-column a:hover {
+    color: var(--text-primary);
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Modal Dark Mode */
+.modal {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.close-btn {
+    color: var(--text-primary);
+}
+
+/* Form Elements Dark Mode */
+.form-label {
+    color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--text-primary);
+}
+
+.form-button {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.form-button:hover {
+    background: var(--text-secondary);
+}
+
+/* Services Detail Page Dark Mode */
+.services-detail-section {
+    background: var(--bg-primary);
+}
+
+.service-detail-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.service-detail-title {
+    color: var(--text-primary);
+}
+
+.service-detail-description {
+    color: var(--text-secondary);
+}
+
+.service-detail-link {
+    color: var(--bg-primary) !important;
+    background: var(--text-primary) !important;
+    padding: 10px 24px !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.service-detail-link:hover {
+    background: var(--text-secondary) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* CTA Section Dark Mode */
+.cta-section {
+    background: var(--bg-secondary);
+}
+
+.cta-title {
+    color: var(--text-primary);
+}
+
+.cta-description {
+    color: var(--text-secondary);
+}
+
+.cta-button {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.cta-button:hover {
+    background: var(--text-secondary);
+}
+
+/* About Page Dark Mode */
+.welcome-text {
+    color: var(--text-secondary);
+}
+
+.brand-name {
+    color: var(--text-primary);
+}
+
+.about-description {
+    color: var(--text-primary);
+}
+
+.values-section,
+.team-section,
+.contact-section {
+    background: var(--bg-primary);
+}
+
+.section-title-about {
+    color: var(--text-primary);
+}
+
+.section-cta-btn {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.section-cta-btn:hover {
+    background: var(--text-secondary);
+}
+
+.value-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.value-name {
+    color: var(--text-secondary);
+}
+
+.value-content {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.value-subtitle {
+    color: var(--text-secondary);
+}
+
+.value-description {
+    color: var(--text-primary);
+}
+
+.team-name {
+    color: var(--text-primary);
+}
+
+.team-role span {
+    color: var(--text-secondary);
+}
+
+/* LinkedIn icon dark mode */
+.linkedin-icon a {
+    color: var(--text-secondary);
+}
+
+.linkedin-icon a:hover {
+    color: #0A66C2;
+}
+
+/* Contact Page Dark Mode */
+.contact-form-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.contact-info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.contact-info-icon {
+    border: 1px solid var(--border-color);
+}
+
+.contact-info-title {
+    color: var(--text-primary);
+}
+
+.contact-info-text {
+    color: var(--text-secondary);
+}
+
+.map-section {
+    background: var(--bg-primary);
+}
+
+.map-title {
+    color: var(--text-primary);
+}
+
+.location-pin {
+    background: var(--bg-secondary);
+}
+
+.pin-title {
+    color: var(--text-primary);
+}
+
+.pin-address {
+    color: var(--text-secondary);
+}
+
+/* Contact form specific dark mode */
+.contact-form-container {
+    background: var(--bg-secondary);
+}
+
+.name-input,
+.email-input {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.message-input {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Blog detail content dark mode */
+.blog-detail-content h2,
+.blog-detail-content h3 {
+    color: var(--text-primary);
+}
+
+.blog-detail-content p,
+.blog-detail-content li {
+    color: var(--text-secondary);
+}
+
+/* Ensure all text inputs and textareas have proper dark styling */
+input[type="text"],
+input[type="email"],
+textarea {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Ensure buttons maintain visibility in dark mode */
+button {
+    border: none;
+    transition: all 0.2s ease;
+}
+
+/* Fix any remaining white backgrounds */
+.bg-white {
+    background-color: var(--bg-primary) !important;
+}
+
+.text-black {
+    color: var(--text-primary) !important;
+}
+
+/* Special handling for images that might need dark mode adjustments */
+.service-image {
+    border-radius: 16px 16px 0 0;
+    opacity: 0.9; /* Slightly reduce brightness for dark theme */
+}
+
+/* Ensure proper contrast for all interactive elements */
+a {
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-secondary);
+}
+
+/* Override any remaining light theme colors */
+.text-gray {
+    color: var(--text-secondary) !important;
+}
+
+.text-white {
+    color: var(--text-primary) !important;
+}
+/* FAQ Section Dark Mode */
+.faq-section {
+    background: var(--bg-primary);
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+.faq-question {
+    color: var(--text-primary);
+}
+
+.faq-question:hover {
+    color: var(--text-secondary);
+}
+
+.faq-icon {
+    color: var(--text-primary);
+}
+
+.faq-answer {
+    background: var(--bg-secondary);
+}
+
+.faq-answer-content {
+    color: var(--text-secondary);
+}
+
+/* Override any remaining light theme colors */
+.text-gray {
+    color: var(--text-secondary) !important;
+}
+
+.text-white {
+    color: var(--text-primary) !important;
+}
 }
