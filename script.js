@@ -301,35 +301,61 @@ Whether you're designing branding elements, product visuals, or user interfaces,
 From intelligent document processing to automated customer interactions and predictive maintenance, we use AI to improve every part of your workflow. Prabony AI enables you to scale faster, save costs, and shift your human capital toward higher-value work.`
 };
 
-// Modal elements
-const modal = document.getElementById('projectModal');
-const closeBtn = document.querySelector('.close-btn');
-const modalTitle = document.getElementById('modalTitle');
-const modalDescription = document.getElementById('modalDescription');
+document.addEventListener('DOMContentLoaded', function () {
+    // Modal elements
+    const modal = document.getElementById('projectModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
 
-// Handle all "View Project" clicks
-document.querySelectorAll('.service-detail-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const projectTitle = this.closest('.service-detail-card').querySelector('.service-detail-title').textContent;
-        modalTitle.textContent = projectTitle;
-        modalDescription.textContent = serviceData[projectTitle] || "Details not available.";
-        modal.style.display = 'block';
+    // Handle all "Read More" clicks
+    document.querySelectorAll('.service-detail-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const projectTitle = this.closest('.service-detail-card').querySelector('.service-detail-title').textContent.trim();
+            modalTitle.textContent = projectTitle;
+            modalDescription.textContent = serviceData[projectTitle] || "Details not available.";
+            modal.style.display = 'block';
+        });
+    });
+
+    // Close modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Close on outside click
+    window.addEventListener('click', e => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.blog-detail-link').forEach(link => {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+// FAQ Section - Toggle Answers
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        if (question && answer) {
+            question.addEventListener('click', () => {
+                // Close other answers
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        }
     });
-});
-
-
-// Close modal events
-closeBtn.addEventListener('click', () => modal.style.display = 'none');
-window.addEventListener('click', e => {
-    if (e.target === modal) modal.style.display = 'none';
 });
 
 // Preload critical images
