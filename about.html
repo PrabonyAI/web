@@ -3,285 +3,930 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prabony AI - Provides Customized AI Solutions World Wide </title>
-    <meta name="description" content="Prabony AI helps businesses scale with cutting-edge AI development, automation, and SaaS solutions in India. Build smart, efficient systems with our AI experts." />
-    <meta name="keywords" content="Prabony AI, AI development, AI automation, AI services India, machine learning">
-    <meta name="author" content="Prabony AI">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/images/fab.avif" type="image/avif">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://www.prabonyai.in/" />
+    <title>Prabony Community</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        .font-unbounded {
+            font-family: 'Unbounded', sans-serif;
+        }
+
+        /* Ambient Light */
+        .ambient-light {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            transition: all 1s ease;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        /* Dark Mode Scrollbar */
+        .dark-mode ::-webkit-scrollbar-track {
+            background: #050510;
+        }
+        .dark-mode ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        /* Light Mode Scrollbar */
+        .light-mode ::-webkit-scrollbar-track {
+            background: #f9fafb;
+        }
+        .light-mode ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        /* Animations */
+        @keyframes revealGlow {
+            0% { opacity: 0.3; transform: translateY(20px) scale(0.95); }
+            50% { opacity: 0.6; transform: translateY(0) scale(1); }
+            100% { opacity: 0.3; transform: translateY(20px) scale(0.95); }
+        }
+        .animate-reveal {
+            animation: revealGlow 4s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes burn {
+            0%, 100% { opacity: 0.4; transform: scale(1); box-shadow: 0 0 2px rgba(255, 255, 255, 0.2); }
+            50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(120, 100, 255, 0.4); }
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            z-index: 0;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Accordion Transition */
+        .accordion-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 200px;
+            opacity: 1;
+        }
+        
+        /* Cursor Styles */
+        #custom-cursor {
+            mix-blend-mode: difference;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* List Styles */
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0; 
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            padding-left: 0.5rem; 
+            border-left: 2px solid rgba(59, 130, 246, 0.5); 
+        }
+
+        /* Sidebar Glassmorphism */
+        .sidebar-glass {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        /* Sidebar Transition */
+        .sidebar-enter {
+            transform: translateX(0%);
+        }
+        .sidebar-exit {
+            transform: translateX(100%);
+        }
+        
+        /* Overlay Blur */
+        .blur-content {
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+        
+        /* Hidden class helper */
+        .hidden-field {
+            display: none;
+        }
+    </style>
 </head>
-<body>
-    <div class="min-h-screen bg-white overflow-hidden">
+<body class="bg-[#050510] text-white transition-colors duration-1000 ease-in-out dark-mode overflow-x-hidden" id="app-wrapper">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="fixed rounded-full transition-transform duration-100 ease-out flex items-center justify-center border border-white/50 bg-transparent z-[100]" style="width: 30px; height: 30px; transform: translate(-50%, -50%); top: -100px; left: -100px;"></div>
+
+    <!-- MAIN CONTENT WRAPPER FOR BLUR EFFECT -->
+    <div id="main-content" class="transition-all duration-300">
+
+        <!-- BACKGROUND CONTAINER -->
+        <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
             
-            <!-- Navigation -->
-            <nav class="navbar">
-                <div class="nav-left">
-                <div class="nav-logo">       
-                    <div class="logo-icon-main">
-                        <img src="./images/l.png" alt="Logo Light" class="logo-image logo-light">
-                        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Logo Dark" class="logo-image logo-dark">
-                    </div>
-                </div>
-                </div>
+            <!-- Dark Mode: Starry Universe -->
+            <div id="bg-dark" class="absolute inset-0 transition-opacity duration-1000 opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#020205] via-[#050510] to-[#0a0a20]"></div>
+            <div class="absolute top-0 left-0 w-full h-full opacity-30 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 right-0 w-full h-full opacity-20 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/40 via-transparent to-transparent"></div>
+            <div id="stars-container"></div>
+            </div>
 
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-button" aria-label="Toggle menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
+            <!-- Light Mode: Clean Minimal Ambience -->
+            <div id="bg-light" class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+            <div 
+                id="ambient-follower"
+                class="ambient-light w-96 h-96 opacity-30 transition-transform duration-100 ease-out"
+                style="background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(255,255,255,0) 70%); left: 50%; top: 50%; transform: translate(-50%, -50%);"
+            ></div>
+            <div class="ambient-light top-0 left-0 w-[600px] h-[600px] -translate-x-1/3 -translate-y-1/3 bg-blue-300/20"></div>
+            <div class="ambient-light bottom-0 right-0 w-[800px] h-[800px] translate-x-1/3 translate-y-1/3 bg-purple-300/20"></div>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-black/20 border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-2 group cursor-pointer interactive">
+                    <span id="nav-logo-text" class="font-unbounded font-semibold text-xl tracking-tight transition-colors text-white">
+                    Prabony AI
+                    </span>
+                </div>
+                
+                <button 
+                    id="theme-toggle"
+                    class="interactive p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 bg-white/10 hover:bg-white/20 text-yellow-300"
+                    aria-label="Toggle Theme"
+                >
+                    <i data-lucide="sun" id="theme-icon"></i>
                 </button>
+            </div>
+        </nav>
 
-                <!-- Desktop Navigation -->
-                 <div class="nav-center">
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-item">
-                        <span>Home</span>
-                    </a>
-                    <a href="services.html" class="nav-item">
-                        <span>Services</span>
-                    </a>
-                    <a href="blogs.html" class="nav-item">
-                        <span>Blogs</span>
-                    </a>
-                    <a href="about.html" class="nav-item active">
-                        <span>About Us</span>
-                    </a>
-                    <a href="contact.html" class="nav-item">
-                        <span>Contact Us</span>
-                    </a>
-                </div>
+        <!-- Main Content Container -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
+            
+            <!-- HERO SECTION -->
+            <section class="min-h-[80vh] flex flex-col items-center justify-center text-center mb-16">
+                
+                <div id="hero-badge" class="mb-8 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-fade-in-up flex items-center gap-2 border border-white/10 bg-white/5 text-blue-300">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Prabony Community
                 </div>
 
-                <!-- Mobile Navigation -->
-                <div class="mobile-menu">
-                    <a href="index.html" class="mobile-nav-item">Home</a>
-                    <a href="services.html" class="mobile-nav-item">Services</a>
-                    <a href="blogs.html" class="mobile-nav-item">Blogs</a>
-                    <a href="about.html" class="mobile-nav-item active">About Us</a>
-                    <a href="contact.html" class="mobile-nav-item">Contact Us</a>
+                <h1 id="hero-title" class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-tight mb-8 text-white">
+                    Welcome to Community
+                </h1>
+
+                <p id="hero-desc" class="text-xl md:text-2xl font-light max-w-2xl mx-auto leading-relaxed mb-10 text-gray-300 uppercase tracking-widest">
+                    Think. Learn. Build. Grow.
+                </p>
+
+                <div class="group">
+                    <!-- HERO BUTTON -->
+                    <a 
+                        href="javascript:void(0)" 
+                        onclick="openSidebar('join')"
+                        class="interactive relative inline-flex items-center gap-4 px-8 h-[60px] text-lg font-semibold rounded-full transition-all duration-300 scale-[0.7] hover:scale-[0.75] hover:tracking-wide overflow-hidden shadow-lg hover:shadow-blue-500/25 origin-top"
+                    >
+                        <div class="btn-bg absolute inset-0 transition-opacity duration-300 bg-white text-black hover:bg-gray-200"></div>
+                        <span class="btn-text relative z-10 flex items-center gap-2 text-black">
+                            Join Community
+                            <i data-lucide="arrow-right" width="20"></i>
+                        </span>
+                    </a>
                 </div>
-            </nav>        
-            <!-- Hero Section -->
-            <section class="hero-section">
-            <!-- Hero Content -->
-            <div class="hero-content">
-                <div class="hero-container">
-                    <div class="hero-tag">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="20" fill="white"/>
-                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                        </svg>
-                        <span>About Us</span>
-                    </div>
-                    
-                    <div class="about-welcome">
-                        <div class="welcome-header">
-                            <h1 class="welcome-text">Welcome to</h1>
-                            <div class="welcome-brand">
-                                <span class="brand-name">Prabony AI</span>
-                            </div>
+            </section>
+
+            <!-- INTRODUCING COMMUNITY SECTION -->
+            <section class="py-24 mb-20">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl md:text-5xl font-semibold mb-6 text-dynamic">
+                        Introducing Community
+                    </h2>
+                    <p class="text-lg max-w-2xl mx-auto text-desc-dynamic">
+                        A space for everyone to collaborate, innovate, and grow together.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1: Student -->
+                    <div class="interactive p-8 rounded-2xl transition-all duration-300 border backdrop-blur-sm group hover:-translate-y-2 feature-card bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-500/30 flex flex-col h-full">
+                        <div class="mb-6 p-3 rounded-xl inline-block feature-icon-bg bg-blue-500/20 text-blue-300 w-fit">
+                            <i data-lucide="graduation-cap" width="32" height="32"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-dynamic">Prabony Student Community</h3>
+                        <ul class="text-left mb-8 feature-list text-desc-dynamic flex-grow">
+                            <li><span>Mentorship from industry experts</span></li>
+                            <li><span>Exclusive internship opportunities</span></li>
+                            <li><span>Access to premium learning resources</span></li>
+                            <li><span>Hackathons with cash prizes</span></li>
+                            <li><span>Networking with peers globally</span></li>
+                        </ul>
+                        
+                        <!-- TAB BUTTON -->
+                        <div class="mt-auto flex justify-center w-full">
+                            <a 
+                                href="javascript:void(0)" 
+                                onclick="openSidebar('join')"
+                                class="interactive relative inline-flex items-center justify-center gap-4 px-8 h-[50px] text-base font-semibold rounded-full transition-all duration-300 overflow-hidden shadow-lg hover:shadow-blue-500/25 w-full"
+                            >
+                                <div class="btn-bg absolute inset-0 transition-opacity duration-300 bg-white text-black hover:bg-gray-200"></div>
+                                <span class="btn-text relative z-10 flex items-center gap-2 text-black">
+                                    Join Community
+                                    <i data-lucide="arrow-right" width="18"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="about-description">
-                        <p>
-                            <span class="text-black">we believe in the transformative</span>
-                            <span class="text-gray"> power of artificial intelligence.</span>
-                            <span class="text-black"> As a premier AI model agency, our mission is to cultivate and nurture innovative AI solutions that</span>
-                            <span class="text-gray"> drive progress, creativity, and efficiency across various industries.</span>
+                    <!-- Card 2: Developer -->
+                    <div class="interactive p-8 rounded-2xl transition-all duration-300 border backdrop-blur-sm group hover:-translate-y-2 feature-card bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-500/30 flex flex-col h-full">
+                        <div class="mb-6 p-3 rounded-xl inline-block feature-icon-bg bg-blue-500/20 text-blue-300 w-fit">
+                            <i data-lucide="code" width="32" height="32"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-dynamic">Prabony Developer Community</h3>
+                        <ul class="text-left mb-8 feature-list text-desc-dynamic flex-grow">
+                            <li><span>Collaborate on open-source projects</span></li>
+                            <li><span>Weekly technical workshops</span></li>
+                            <li><span>Code reviews and pair programming</span></li>
+                            <li><span>Early access to Prabony tools</span></li>
+                            <li><span>Career growth and job board</span></li>
+                        </ul>
+                        <div class="mt-auto flex justify-center w-full">
+                            <a 
+                                href="javascript:void(0)" 
+                                onclick="openSidebar('join')"
+                                class="interactive relative inline-flex items-center justify-center gap-4 px-8 h-[50px] text-base font-semibold rounded-full transition-all duration-300 overflow-hidden shadow-lg hover:shadow-blue-500/25 w-full"
+                            >
+                                <div class="btn-bg absolute inset-0 transition-opacity duration-300 bg-white text-black hover:bg-gray-200"></div>
+                                <span class="btn-text relative z-10 flex items-center gap-2 text-black">
+                                    Join Community
+                                    <i data-lucide="arrow-right" width="18"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Startup -->
+                    <div class="interactive p-8 rounded-2xl transition-all duration-300 border backdrop-blur-sm group hover:-translate-y-2 feature-card bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-500/30 flex flex-col h-full">
+                        <div class="mb-6 p-3 rounded-xl inline-block feature-icon-bg bg-blue-500/20 text-blue-300 w-fit">
+                            <i data-lucide="rocket" width="32" height="32"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-dynamic">Prabony Startup Community</h3>
+                        <ul class="text-left mb-8 feature-list text-desc-dynamic flex-grow">
+                            <li><span>Investor matchmaking sessions</span></li>
+                            <li><span>Co-founder networking events</span></li>
+                            <li><span>Go-to-market strategy workshops</span></li>
+                            <li><span>Credits for BadCoder & AI tools</span></li>
+                            <li><span>Legal and compliance support</span></li>
+                        </ul>
+                        <div class="mt-auto flex justify-center w-full">
+                            <a 
+                                href="javascript:void(0)" 
+                                onclick="openSidebar('join')"
+                                class="interactive relative inline-flex items-center justify-center gap-4 px-8 h-[50px] text-base font-semibold rounded-full transition-all duration-300 overflow-hidden shadow-lg hover:shadow-blue-500/25 w-full"
+                            >
+                                <div class="btn-bg absolute inset-0 transition-opacity duration-300 bg-white text-black hover:bg-gray-200"></div>
+                                <span class="btn-text relative z-10 flex items-center gap-2 text-black">
+                                    Join Community
+                                    <i data-lucide="arrow-right" width="18"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMMUNITY EVENTS SECTION -->
+            <section class="py-24 mb-20">
+                <div class="text-center mb-16">
+                    <div class="max-w-2xl mx-auto">
+                        <h2 class="text-3xl md:text-5xl font-semibold mb-6 text-dynamic">
+                            Community Events
+                        </h2>
+                        <p class="text-lg text-desc-dynamic">
+                            Mark your calendars. Connect with the best minds in the industry.
                         </p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Team Section -->
-        <section class="team-section">
-            <div class="container">
-                <div class="section-header-about">
-                    <div class="hero-tag">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="20" fill="white"/>
-                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                        </svg>
-                        <span>Our Team</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Event 1 -->
+                    <div class="interactive p-6 rounded-xl border transition-all duration-300 bg-transparent border-white/10 hover:bg-blue-500/10 use-case-card flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="text-blue-400 use-case-icon">
+                                <i data-lucide="globe" width="24"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-dynamic">Prabony EXPO</h4>
+                        </div>
+                        <ul class="text-left mb-6 feature-list text-desc-dynamic flex-grow">
+                            <li><span>Showcase projects to thousands</span></li>
+                            <li><span>Live demos and feedback</span></li>
+                            <li><span>Meet potential investors</span></li>
+                            <li><span>Win "Project of the Year" awards</span></li>
+                            <li><span>Media coverage opportunities</span></li>
+                        </ul>
+                        <button onclick="openSidebar('notify')" class="notify-btn w-full py-2 rounded border transition-colors duration-300 text-sm font-medium mt-auto">Notify Me</button>
                     </div>
-                    <div class="section-title-cta">
-                        <h2 class="section-title-about">
-                            <span class="text-black">The Team Behind Your</span><br>
-                            <span class="text-gray">Digital Success</span>
-                        </h2>
-                        <a href="careers.html" class="section-link">
-                        <button class="hero-btn">
-                            Join Our Team
+
+                    <!-- Event 2 -->
+                    <div class="interactive p-6 rounded-xl border transition-all duration-300 bg-transparent border-white/10 hover:bg-blue-500/10 use-case-card flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="text-blue-400 use-case-icon">
+                                <i data-lucide="mic" width="24"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-dynamic">Prabony DevCon</h4>
+                        </div>
+                        <ul class="text-left mb-6 feature-list text-desc-dynamic flex-grow">
+                            <li><span>Keynotes from tech leaders</span></li>
+                            <li><span>Hands-on coding labs</span></li>
+                            <li><span>Architecture deep dives</span></li>
+                            <li><span>Networking mixers</span></li>
+                            <li><span>Exclusive swag and merchandise</span></li>
+                        </ul>
+                        <button onclick="openSidebar('notify')" class="notify-btn w-full py-2 rounded border transition-colors duration-300 text-sm font-medium mt-auto">Notify Me</button>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="interactive p-6 rounded-xl border transition-all duration-300 bg-transparent border-white/10 hover:bg-blue-500/10 use-case-card flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="text-blue-400 use-case-icon">
+                                <i data-lucide="bot" width="24"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-dynamic">Prabony AI Day</h4>
+                        </div>
+                        <ul class="text-left mb-6 feature-list text-desc-dynamic flex-grow">
+                            <li><span>Latest trends in GenAI</span></li>
+                            <li><span>Research paper walkthroughs</span></li>
+                            <li><span>AI ethics panel discussions</span></li>
+                            <li><span>Model building workshops</span></li>
+                            <li><span>Future of AI roadmap</span></li>
+                        </ul>
+                        <button onclick="openSidebar('notify')" class="notify-btn w-full py-2 rounded border transition-colors duration-300 text-sm font-medium mt-auto">Notify Me</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ SECTION -->
+            <section class="py-24 max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl md:text-5xl font-semibold text-center mb-16 text-dynamic">
+                    Common Questions
+                </h2>
+                
+                <div class="space-y-4" id="faq-container">
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">Who can join the community?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
                         </button>
-                        </a>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                Everyone! Whether you are a student, professional, founder, or just an AI enthusiast, there is a place for you in the Prabony Community.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">Are the events free?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                Most of our community events are free to attend. Some special workshops or conferences might have a nominal fee.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">How can I contribute?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                You can contribute by mentoring students, speaking at events, organizing local meetups, or contributing to our open-source projects.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW FAQs -->
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">Can I host a local chapter?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                Yes! We encourage local meetups. Please submit an application through the "Join Community" form and specify your interest in community leadership.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">Is there a Discord server?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                Yes, we have an active Discord server for real-time collaboration. The invite link is sent to you after you join the community.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">Do you offer student discounts?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                Prabony AI offers special grants and credits for verified students. Join the Student Community to access these perks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="text-lg font-medium text-dynamic">How do I become a mentor?</span>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0 text-desc-dynamic">
+                                Experienced professionals can apply to be mentors. Use the Join form and select your role, then mention mentoring in your profile details later.
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="./images/rohan.avif" alt="Rohan Gupta" class="team-photo left-rounded">
-                        <div class="team-info">
-                            <h3 class="team-name">Rohan Gupta</h3>
-                            <div class="team-role">
-                                <span>Founder</span>
-                                <div class="linkedin-icon">
-                                    <a href="https://www.linkedin.com/in/rohan-r-gupta-b09916243/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="team-member bottom-offset">
-                        <img src="./images/shanu.avif" alt="Shanu Priya" class="team-photo bottom-rounded">
-                        <div class="team-info">
-                            <h3 class="team-name">Shanu Priya</h3>
-                            <div class="team-role">
-                                <span>Creative Director</span>
-                                <div class="linkedin-icon">
-                                    <a href="https://www.linkedin.com/in/shanu-priya-527b2922a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-member top-offset">
-                        <img src="./images/palak.avif" alt="Palak Srivastava" class="team-photo top-rounded">
-                        <div class="team-info">
-                            <h3 class="team-name">Palak Srivastava</h3>
-                            <div class="team-role">
-                                <span>CEO</span>
-                                <div class="linkedin-icon">
-                                    <a href="https://www.linkedin.com/in/palak-srivastava0901/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-member">
-                        <img src="./images/nakul.avif" alt="Nakul Saraf" class="team-photo left-rounded">
-                        <div class="team-info">
-                            <h3 class="team-name">Nakul Saraf</h3>
-                            <div class="team-role">
-                                <span>Technical Head</span>
-                                <div class="linkedin-icon">
-                                    <a href="https://www.linkedin.com/in/nakul-saraf-6b8164319/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="team-member">
-                        <img src="./images/nikita.avif" alt="Nikita Jain" class="team-photo right-rounded">
-                        <div class="team-info">
-                            <h3 class="team-name">Nikita Jain</h3>
-                            <div class="team-role">
-                                <span>Head HR</span>
-                                <div class="linkedin-icon">
-                                    <a href="https://www.linkedin.com/in/nikitajain-feb3/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- CONTACT & SOCIAL SECTION -->
+            <section class="py-12 text-center border-t border-opacity-10 border-gray-500">
+                <!-- Minimal Contact Info -->
+                <div id="contact-container" class="flex items-center justify-center gap-2 text-sm md:text-base mb-8 transition-colors text-gray-500 hover:text-white">
+                    <i data-lucide="mail" width="16"></i>
+                    <a href="mailto:community@prabonyai.in" class="interactive border-b border-transparent hover:border-current transition-all">
+                        community@prabonyai.in
+                    </a>
                 </div>
+            
+            <!-- Social Media Links -->
+            <div class="flex justify-center items-center gap-6">
+                    <a href="https://www.youtube.com/@PrabonyAI" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 text-gray-400 hover:text-white hover:bg-white/10 social-icon">
+                        <i data-lucide="youtube" width="20"></i>
+                    </a>
+                    <a href="https://www.instagram.com/prabony.ai?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 text-gray-400 hover:text-white hover:bg-white/10 social-icon">
+                        <i data-lucide="instagram" width="20"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/prabonyai/" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 text-gray-400 hover:text-white hover:bg-white/10 social-icon">
+                        <i data-lucide="linkedin" width="20"></i>
+                    </a>
+                    <a href="https://x.com/prabonyAI" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 text-gray-400 hover:text-white hover:bg-white/10 social-icon">
+                        <!-- Custom X Logo SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                        </svg>
+                    </a>
             </div>
-        </section>
+            </section>
 
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <div class="container">
-                <div class="section-header-about">
-                    <div class="section-title-cta" style="margin: auto;">
-                        <h2 class="section-title-about">
-                            <span class="text-black">Tell Your Idea and Make It</span><br>
-                            <span class="text-gray"> True with Us</span>
-                        </h2>
-                    </div>
-                </div>
+            <!-- Footer -->
+            <footer class="py-8 text-center text-sm text-desc-dynamic">
+                <p>© <span id="year"></span> Prabony AI. All rights reserved.</p>
+            </footer>
 
-                <div class="contact-form-container">
-                    <div class="contact-form-bg"></div>
-                    <div class="contact-form-content">
-                        <div class="form-group">
-                            <input type="text" class="form-input name-input" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-input email-input" placeholder="Email address">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-textarea message-input" placeholder="Share us your Idea..."></textarea>
-                        </div>
-                        <button class="form-button">Submit</button>
-                    </div>
-                </div>
+        </div> <!-- End Main Content Container -->
+
+    </div> <!-- End Wrapper -->
+
+    <!-- SIDEBAR OVERLAY -->
+    <div id="sidebar-overlay" onclick="closeSidebar()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <!-- SIDEBAR FORM -->
+    <aside id="community-sidebar" class="fixed top-0 right-0 h-full w-full md:w-[450px] z-[60] transition-transform duration-300 transform translate-x-full sidebar-glass border-l border-white/10 bg-black/80">
+        <div class="h-full flex flex-col p-8 overflow-y-auto">
+            
+            <div class="flex justify-between items-center mb-8">
+                <!-- CHANGED FONT TO POPPINS -->
+                <h2 id="sidebar-title" class="text-2xl font-semibold font-['Poppins'] text-dynamic-sidebar">Join Us</h2>
+                <button onclick="closeSidebar()" class="p-2 rounded-full hover:bg-white/10 text-dynamic-sidebar transition-colors">
+                    <i data-lucide="x" width="24"></i>
+                </button>
             </div>
-        </section>
 
-<!-- Footer -->
-       <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <!-- Left Section -->
-      <div class="footer-left">
-        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Prabony AI Logo" class="footer-logo" />
-        <p class="footer-description">
-          Join our newsletter to stay up to date on features and releases.
-        </p>
-        <form class="newsletter" onsubmit="event.preventDefault(); alert('Subscribed!');">
-          <input type="email" placeholder="Type your id" required />
-          <button class="btn-primary" type="submit">Subscribe</button>
-        </form>
-        <p class="newsletter-disclaimer">
-          By subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.
-        </p>
-      </div>
+            <p class="text-desc-sidebar mb-8 text-sm">Fill in your details to become a part of the Prabony ecosystem.</p>
 
-      <!-- Center Section -->
-     
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="contact.html">Contact</a>
+            <form class="space-y-6">
+                <!-- Name -->
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-dynamic-sidebar block">Your Name</label>
+                    <input type="text" placeholder="John Doe" class="w-full bg-transparent border rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors input-dynamic-sidebar text-base">
+                </div>
+
+                <!-- Email -->
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-dynamic-sidebar block">Email Address</label>
+                    <input type="email" placeholder="john@example.com" class="w-full bg-transparent border rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors input-dynamic-sidebar text-base">
+                </div>
+
+                <!-- Mobile (Toggleable) -->
+                <div class="space-y-2 join-only-field">
+                    <label class="text-sm font-medium text-dynamic-sidebar block">Mobile Number</label>
+                    <input type="tel" placeholder="+91 98765 43210" class="w-full bg-transparent border rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors input-dynamic-sidebar text-base">
+                </div>
+
+                <!-- Role (Toggleable) -->
+                <div class="space-y-2 join-only-field">
+                    <label class="text-sm font-medium text-dynamic-sidebar block">I am a...</label>
+                    <select class="w-full bg-transparent border rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors input-dynamic-sidebar appearance-none text-base">
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="student" class="text-black">Student</option>
+                        <option value="developer" class="text-black">Developer</option>
+                        <option value="founder" class="text-black">Founder</option>
+                    </select>
+                </div>
+
+                <!-- LinkedIn (Toggleable) -->
+                <div class="space-y-2 join-only-field">
+                    <label class="text-sm font-medium text-dynamic-sidebar block">LinkedIn Profile</label>
+                    <input type="url" placeholder="https://linkedin.com/in/username" class="w-full bg-transparent border rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors input-dynamic-sidebar text-base">
+                </div>
+
+                <!-- Submit (Border removed) -->
+                <button type="submit" id="sidebar-submit-btn" class="w-full relative inline-flex items-center justify-center gap-2 px-8 h-[50px] text-base font-semibold rounded-full transition-all duration-300 mt-6">
+                     <span class="relative z-10 flex items-center gap-2">
+                        <span id="sidebar-btn-text">Submit Application</span>
+                        <i data-lucide="arrow-right" width="18"></i>
+                    </span>
+                </button>
+            </form>
+
         </div>
-        <div class="footer-column">
-          <h3>More</h3>
-          <a href="blogs.html">Blog</a>
-          <a href="index.html#portfolio">Career</a>
-          <a href="#">Case Studies</a>
-          <a href="#">Help Center</a>
-        </div>
-        <div class="footer-column">
-          <h3>Follow Us</h3>
-          <a href="https://www.linkedin.com/company/prabonyai/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/PrabonyAI" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://www.instagram.com/prabony.ai/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        </div>
-      </div>
-    </div>
+    </aside>
 
-    <!-- Bottom Section -->
-    <div class="footer-bottom">
-      <div class="footer-links">
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookies Settings</a>
-      </div>
-      <p>&copy; 2025 PrabonyAI. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-    </div>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. Global Variables & State ---
+        let darkMode = true;
+        const wrapper = document.getElementById('app-wrapper');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeBtn = document.getElementById('theme-toggle');
+        const cursor = document.getElementById('custom-cursor');
+        
+        // --- 2. Stars Generation ---
+        const starsContainer = document.getElementById('stars-container');
+        function generateStars() {
+            const starCount = 150;
+            starsContainer.innerHTML = ''; // Clear existing
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() > 0.9 ? Math.random() * 3 + 2 : Math.random() * 2 + 1;
+                const isBurning = Math.random() > 0.92;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationName = isBurning ? 'burn' : 'twinkle';
+                star.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                star.style.animationIterationCount = 'infinite';
+                star.style.animationTimingFunction = 'ease-in-out';
+                starsContainer.appendChild(star);
+            }
+        }
+        generateStars();
 
-    <script src="script.js"></script>
+        // --- 3. Sidebar Logic ---
+        const sidebar = document.getElementById('community-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mainContent = document.getElementById('main-content');
+        
+        // Dynamic Sidebar Elements
+        const sidebarTitle = document.getElementById('sidebar-title');
+        const sidebarBtnText = document.getElementById('sidebar-btn-text');
+        const joinFields = document.querySelectorAll('.join-only-field');
+
+        function openSidebar(mode) {
+            // Logic to switch between Join form and Notify form
+            if (mode === 'notify') {
+                sidebarTitle.textContent = "Get Notified";
+                sidebarBtnText.textContent = "Notify Me";
+                joinFields.forEach(field => field.classList.add('hidden'));
+            } else {
+                sidebarTitle.textContent = "Join Us";
+                sidebarBtnText.textContent = "Submit Application";
+                joinFields.forEach(field => field.classList.remove('hidden'));
+            }
+
+            sidebar.classList.remove('translate-x-full');
+            sidebar.classList.add('translate-x-0');
+            
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+            }, 10);
+
+            mainContent.classList.add('blur-content');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('translate-x-0');
+            sidebar.classList.add('translate-x-full');
+            
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            
+            mainContent.classList.remove('blur-content');
+
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+
+        // --- 4. Theme Toggling Logic ---
+        function updateTheme() {
+            const bgDark = document.getElementById('bg-dark');
+            const bgLight = document.getElementById('bg-light');
+            const navLogo = document.getElementById('nav-logo-text');
+            const navbar = document.getElementById('navbar');
+            const heroBadge = document.getElementById('hero-badge');
+            const heroTitle = document.getElementById('hero-title');
+            const heroDesc = document.getElementById('hero-desc');
+            
+            const btnBgs = document.querySelectorAll('.btn-bg');
+            const btnTexts = document.querySelectorAll('.btn-text');
+            const notifyBtns = document.querySelectorAll('.notify-btn');
+            
+            const textDynamic = document.querySelectorAll('.text-dynamic');
+            const descDynamic = document.querySelectorAll('.text-desc-dynamic');
+            const blueDynamic = document.querySelectorAll('.text-blue-dynamic');
+            
+            const featureCards = document.querySelectorAll('.feature-card');
+            const useCaseCards = document.querySelectorAll('.use-case-card');
+            const featureIconsBg = document.querySelectorAll('.feature-icon-bg');
+            const useCaseIcons = document.querySelectorAll('.use-case-icon');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            const contactContainer = document.getElementById('contact-container');
+            const socialIcons = document.querySelectorAll('.social-icon');
+
+            // Sidebar Dynamic Elements
+            const sidebarEl = document.getElementById('community-sidebar');
+            const textDynamicSidebar = document.querySelectorAll('.text-dynamic-sidebar');
+            const descSidebar = document.querySelector('.text-desc-sidebar');
+            const inputSidebar = document.querySelectorAll('.input-dynamic-sidebar');
+            const sidebarSubmitBtn = document.getElementById('sidebar-submit-btn');
+
+            if (darkMode) {
+                // DARK MODE SETTINGS
+                wrapper.classList.remove('bg-gray-50', 'text-gray-900', 'light-mode');
+                wrapper.classList.add('bg-[#050510]', 'text-white', 'dark-mode');
+                
+                // ... existing background logic ...
+                bgDark.classList.replace('opacity-0', 'opacity-100');
+                bgLight.classList.replace('opacity-100', 'opacity-0');
+                
+                navLogo.classList.replace('text-gray-900', 'text-white');
+                navbar.classList.replace('bg-white/70', 'bg-black/20');
+                navbar.classList.replace('border-black/5', 'border-white/5');
+                
+                themeBtn.classList.replace('bg-black/5', 'bg-white/10');
+                themeBtn.classList.replace('hover:bg-black/10', 'hover:bg-white/20');
+                themeBtn.classList.replace('text-slate-700', 'text-yellow-300');
+                themeIcon.setAttribute('data-lucide', 'sun');
+
+                heroBadge.className = "mb-8 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-fade-in-up flex items-center gap-2 border border-white/10 bg-white/5 text-blue-300";
+                heroTitle.classList.replace('text-gray-900', 'text-white');
+                heroDesc.classList.replace('text-gray-600', 'text-gray-300');
+                
+                // Join Community Buttons
+                btnBgs.forEach(el => { el.className = "btn-bg absolute inset-0 transition-opacity duration-300 bg-white text-black hover:bg-gray-200"; });
+                btnTexts.forEach(el => { el.className = "btn-text relative z-10 flex items-center gap-2 text-black"; });
+
+                // Notify Me Buttons (Dark Mode)
+                notifyBtns.forEach(el => {
+                    el.className = "notify-btn w-full py-2 rounded border border-blue-500/50 text-blue-400 hover:bg-white hover:border-white hover:text-black transition-colors duration-300 text-sm font-medium mt-auto";
+                });
+
+                textDynamic.forEach(el => { el.classList.remove('text-gray-900'); el.classList.add('text-white'); });
+                descDynamic.forEach(el => { el.classList.remove('text-gray-600'); el.classList.add('text-gray-400'); }); 
+                blueDynamic.forEach(el => { el.className = "text-sm uppercase tracking-wider font-medium text-blue-400/80"; });
+
+                featureCards.forEach(el => { el.className = "interactive p-8 rounded-2xl transition-all duration-300 border backdrop-blur-sm group hover:-translate-y-2 feature-card bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-500/30 flex flex-col h-full"; });
+                featureIconsBg.forEach(el => { el.className = "mb-6 p-3 rounded-xl inline-block feature-icon-bg bg-blue-500/20 text-blue-300 w-fit"; });
+
+                useCaseCards.forEach(el => { el.className = "interactive p-6 rounded-xl border transition-all duration-300 bg-transparent border-white/10 hover:bg-blue-500/10 use-case-card flex flex-col h-full"; });
+                useCaseIcons.forEach(el => { el.className = "text-blue-400 use-case-icon"; });
+
+                faqItems.forEach(el => { el.className = "interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-white/10 bg-white/5"; });
+
+                contactContainer.className = "flex items-center justify-center gap-2 text-sm md:text-base mb-8 transition-colors text-gray-500 hover:text-white";
+                socialIcons.forEach(el => { el.className = "interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 text-gray-400 hover:text-white hover:bg-white/10 social-icon"; });
+
+                // Sidebar Dark Mode
+                sidebarEl.classList.replace('bg-white/80', 'bg-black/80');
+                sidebarEl.classList.replace('border-black/10', 'border-white/10');
+                textDynamicSidebar.forEach(el => { el.classList.replace('text-gray-900', 'text-white'); el.classList.add('text-white'); }); 
+                if(descSidebar) descSidebar.className = "text-desc-sidebar mb-8 text-sm text-gray-400";
+                inputSidebar.forEach(el => {
+                    el.className = "w-full bg-transparent border border-white/20 rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors input-dynamic-sidebar text-white placeholder-gray-500 text-base";
+                });
+                
+                // Sidebar Submit Button Dark Mode: White BG, Black Text -> Hover: Black BG, White Text
+                if(sidebarSubmitBtn) {
+                    sidebarSubmitBtn.className = "w-full relative inline-flex items-center justify-center gap-2 px-8 h-[50px] text-base font-semibold rounded-full transition-all duration-300 mt-6 bg-white text-black hover:bg-black hover:text-white";
+                }
+
+            } else {
+                // LIGHT MODE SETTINGS
+                wrapper.classList.remove('bg-[#050510]', 'text-white', 'dark-mode');
+                wrapper.classList.add('bg-gray-50', 'text-gray-900', 'light-mode');
+                
+                // ... existing background logic ...
+                bgDark.classList.replace('opacity-100', 'opacity-0');
+                bgLight.classList.replace('opacity-0', 'opacity-100');
+                
+                navLogo.classList.replace('text-white', 'text-gray-900');
+                navbar.classList.replace('bg-black/20', 'bg-white/70');
+                navbar.classList.replace('border-white/5', 'border-black/5');
+
+                themeBtn.classList.replace('bg-white/10', 'bg-black/5');
+                themeBtn.classList.replace('hover:bg-white/20', 'hover:bg-black/10');
+                themeBtn.classList.replace('text-yellow-300', 'text-slate-700');
+                themeIcon.setAttribute('data-lucide', 'moon');
+
+                heroBadge.className = "mb-8 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-fade-in-up flex items-center gap-2 border border-black/10 bg-black/5 text-blue-700";
+                heroTitle.classList.replace('text-white', 'text-gray-900');
+                heroDesc.classList.replace('text-gray-300', 'text-gray-600');
+                
+                // Join Community Buttons
+                btnBgs.forEach(el => { el.className = "btn-bg absolute inset-0 transition-opacity duration-300 bg-black text-white hover:bg-gray-800"; });
+                btnTexts.forEach(el => { el.className = "btn-text relative z-10 flex items-center gap-2 text-white"; });
+
+                // Notify Me Buttons (Light Mode)
+                notifyBtns.forEach(el => {
+                    el.className = "notify-btn w-full py-2 rounded border border-blue-500 text-blue-600 hover:bg-black hover:border-black hover:text-white transition-colors duration-300 text-sm font-medium mt-auto";
+                });
+
+                textDynamic.forEach(el => { el.classList.remove('text-white'); el.classList.add('text-gray-900'); });
+                descDynamic.forEach(el => { el.classList.remove('text-gray-400'); el.classList.add('text-gray-600'); });
+                blueDynamic.forEach(el => { el.className = "text-sm uppercase tracking-wider font-medium text-blue-600"; });
+
+                featureCards.forEach(el => { el.className = "interactive p-8 rounded-2xl transition-all duration-300 border backdrop-blur-sm group hover:-translate-y-2 feature-card bg-white border-black/5 shadow-lg hover:shadow-xl flex flex-col h-full"; });
+                featureIconsBg.forEach(el => { el.className = "mb-6 p-3 rounded-xl inline-block feature-icon-bg bg-blue-100 text-blue-600 w-fit"; });
+
+                useCaseCards.forEach(el => { el.className = "interactive p-6 rounded-xl border transition-all duration-300 bg-transparent border-black/10 hover:bg-blue-50 use-case-card flex flex-col h-full"; });
+                useCaseIcons.forEach(el => { el.className = "text-blue-600 use-case-icon"; });
+
+                faqItems.forEach(el => { el.className = "interactive border rounded-2xl overflow-hidden transition-all duration-300 faq-item border-black/5 bg-white"; });
+
+                contactContainer.className = "flex items-center justify-center gap-2 text-sm md:text-base mb-8 transition-colors text-gray-500 hover:text-black";
+                socialIcons.forEach(el => { el.className = "interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 text-gray-500 hover:text-black hover:bg-black/5 social-icon"; });
+
+                // Sidebar Light Mode
+                sidebarEl.classList.replace('bg-black/80', 'bg-white/80');
+                sidebarEl.classList.replace('border-white/10', 'border-black/10');
+                textDynamicSidebar.forEach(el => { el.classList.replace('text-white', 'text-gray-900'); });
+                if(descSidebar) descSidebar.className = "text-desc-sidebar mb-8 text-sm text-gray-600";
+                inputSidebar.forEach(el => {
+                    el.className = "w-full bg-transparent border border-black/20 rounded-lg px-4 py-3 outline-none focus:border-blue-600 transition-colors input-dynamic-sidebar text-gray-900 placeholder-gray-400 text-base";
+                });
+
+                // Sidebar Submit Button Light Mode: Black BG, White Text -> Hover: White BG, Black Text
+                if(sidebarSubmitBtn) {
+                    sidebarSubmitBtn.className = "w-full relative inline-flex items-center justify-center gap-2 px-8 h-[50px] text-base font-semibold rounded-full transition-all duration-300 mt-6 bg-black text-white hover:bg-white hover:text-black";
+                }
+            }
+            lucide.createIcons();
+        }
+
+        themeBtn.addEventListener('click', () => {
+            darkMode = !darkMode;
+            updateTheme();
+        });
+
+        // --- 5. Mouse Move Logic (Cursor) ---
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            const follower = document.getElementById('ambient-follower');
+            if (follower) {
+                const xPercent = (e.clientX / window.innerWidth) * 100;
+                const yPercent = (e.clientY / window.innerHeight) * 100;
+                follower.style.left = `${xPercent}%`;
+                follower.style.top = `${yPercent}%`;
+            }
+            const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
+            let isClickable = false;
+            if (hoveredElement) {
+                isClickable = hoveredElement.closest('a') || 
+                              hoveredElement.closest('button') || 
+                              hoveredElement.closest('.interactive') ||
+                              hoveredElement.closest('input') ||
+                              hoveredElement.closest('select');
+            }
+            if (isClickable) {
+                cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+                cursor.style.backgroundColor = 'white';
+            } else {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.backgroundColor = 'transparent';
+            }
+        });
+
+        // --- 6. FAQ Logic ---
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            document.querySelectorAll('.accordion-content').forEach(c => {
+                if (c !== content) {
+                    c.classList.remove('open');
+                    c.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                }
+            });
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // --- 7. Mind Blowing Scroll Theme Effect ---
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const threshold = 1000;
+            
+            // Calculate which 1000px segment we are in
+            const segmentIndex = Math.floor(scrollY / threshold);
+            
+            // Even segments (0, 2, 4...) -> Dark Mode
+            // Odd segments (1, 3, 5...) -> Light Mode
+            const shouldBeDark = (segmentIndex % 2 === 0);
+            
+            // Only update if the state needs to change to prevent performance issues
+            if (darkMode !== shouldBeDark) {
+                darkMode = shouldBeDark;
+                updateTheme();
+            }
+        });
+
+        // --- Init ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+        lucide.createIcons();
+        updateTheme(); 
+
+    </script>
 </body>
 </html>
-
