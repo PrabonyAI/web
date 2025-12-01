@@ -1,477 +1,611 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prabony AI - Provides Customized AI Solutions World Wide </title>
-    <meta name="description" content="Prabony AI helps businesses scale with cutting-edge AI development, automation, and SaaS solutions in India. Build smart, efficient systems with our AI experts." />
-    <meta name="keywords" content="Prabony AI, AI development, AI automation, AI services India, machine learning">
-    <meta name="author" content="Prabony AI">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/images/fab.avif" type="image/avif">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://www.prabonyai.in/" />
-</head>
-<body>
-    
-    <div class="min-h-screen bg-white overflow-hidden">
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Moon, Sun, ArrowRight, Zap, Code, Cpu, 
+  Github, Download, Clock, MessageSquare, CreditCard,
+  Rocket, GraduationCap, Store, Briefcase, UserCheck, Building2,
+  ChevronDown, ChevronUp, Mail, Sparkles,
+  Youtube, Instagram, Linkedin
+} from 'lucide-react';
 
-            <!-- Navigation -->
-            <nav class="navbar">
-                <div class="nav-left">
-                <div class="nav-logo">       
-                    <div class="logo-icon-main">
-                        <img src="./images/l.png" alt="Logo Light" class="logo-image logo-light">
-                        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Logo Dark" class="logo-image logo-dark">
-                    </div>
-                </div>
-                </div>
+// Custom X Logo Component (since Lucide 'X' is a cross, and 'Twitter' is the bird)
+const XLogo = ({ size = 20, className }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+  </svg>
+);
 
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-button" aria-label="Toggle menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
+// Utility component for counting up numbers
+const CountUp = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-                <!-- Desktop Navigation -->
-                 <div class="nav-center">
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-item active">
-                        <span>Home</span>
-                    </a>
-                    <a href="services.html" class="nav-item">
-                        <span>Services</span>
-                    </a>
-                    <a href="blogs.html" class="nav-item">
-                        <span>Blogs</span>
-                    </a>
-                    <a href="about.html" class="nav-item">
-                        <span>About Us</span>
-                    </a>
-                    <a href="contact.html" class="nav-item">
-                        <span>Contact Us</span>
-                    </a>
-                </div>
-                </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-                <!-- Mobile Navigation -->
-                <div class="mobile-menu">
-                    <a href="index.html" class="mobile-nav-item active">Home</a>
-                    <a href="services.html" class="mobile-nav-item">Services</a>
-                    <a href="blogs.html" class="mobile-nav-item">Blogs</a>
-                    <a href="about.html" class="mobile-nav-item">About Us</a>
-                    <a href="contact.html" class="mobile-nav-item">Contact Us</a>
-                </div>
-                
-            </nav>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <!-- Hero Content -->
-            <div class="hero-content">
-                <div class="hero-container">
-                    <div class="hero-tag">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="20" fill="white"/>
-                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                        </svg>
-                        <span>Your Vision, Our AI</span>
-                    </div>
-                    <h1 class="hero-title">Prabony AI helps businesses to scale with AI</h1>
-                    <p class="hero-description">We design and deliver intelligent, scalable AI solutions that transform how businesses operate, compete, and grow in the digital age.</p>
-                    <a href="services.html" class="section-link">
-                    <button class="hero-btn">
-                        Discover Services
-                    </button>
-                    </a>
-                </div>
-            </div>
-        </section>
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
 
+    return () => observer.disconnect();
+  }, []);
 
-        <!-- Industries Section -->
-        <section class="industries" id="industries">
-                <div class="desktop-layout">
-                <!-- First Column - Stats -->
-                <div class="card-column">
-                    <div class="card-column-flex">
-                        <div class="stats-card">
-                            <div class="stats-content">
-                                <h2 class="stats-number">80%</h2>
-                                <p class="stats-text">Our AI solutions are designed to cater to a wide range of industries</p>
-                            </div>
-                        </div>
-                        
-                        <div class="gray-card">
-                            <p class="gray-card-text">Developing Advanced AI Capabilities</p>
-                        </div>
-                    </div>
-                </div>
+  useEffect(() => {
+    if (!isVisible) return;
 
-                <!-- Second Column - AI Mobile App -->
-                <div class="card-column offset-1">
-                    <div class="mobile-app-card">
-                        <div class="mobile-app-title">AI Mobile<br>App</div>
-                    </div>
-                </div>
+    let startTime = null;
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      // Easing function for smooth counting
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      
+      setCount(Math.floor(easeOutQuart * end));
 
-                <!-- Third Column - Services -->
-                <div class="card-column offset-2">
-                    <div class="services-card">
-                        <div class="services-title">Explore our<br>services</div>
-                        <a href="contact.html" class="section-link">
-                            <button class="services-button">Get in touch</button>
-                        </a>
-                    </div>
-                </div>
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
 
-                <!-- Fourth Column - Healthcare -->
-                <div class="card-column offset-1">
-                    <div class="healthcare-card">
-                        <div class="healthcare-label">Automation</div>
-                    </div>
-                </div>
+    requestAnimationFrame(animate);
+  }, [isVisible, end, duration]);
 
-                <!-- Fifth Column - Finance & Building Future -->
-                <div class="card-column">
-                    <div class="card-column-flex gap-small">
-                        <div class="finance-card">
-                            <div class="finance-label"></div>
-                        </div>
-                        
-                        <div class="orange-card">
-                            <p class="orange-card-text">Building the Future<br>of AI</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div><br></div>
-        </section>
+  return <span ref={countRef}>{count.toLocaleString()}</span>;
+};
 
+const LandingPage = () => {
+  const [darkMode, setDarkMode] = useState(true);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorVariant, setCursorVariant] = useState("default");
+  const [openFaq, setOpenFaq] = useState(null);
+  const [stars, setStars] = useState([]);
 
-        <!-- Services Section -->
-        <section class="services-section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="20" fill="white"/>
-                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                        </svg>
-                        <span>Our Services</span>
-                    </div>
-                </div>
+  // Toggle theme handler
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
 
-                <div class="services-grid">
-                    <div class="service-card">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/b6efb6b8ac20d3e115b22619c8bc9ace7e6b5f2f?width=720" alt="AI Agents" class="service-image">
-                        <div class="service-content">
-                            <p class="service-category">Build</p>
-                            <h3 class="service-title">AI Agents</h3>
-                            <p class="service-description">Our NLP models enhance communication and understanding between humans and machines.</p>
-                        </div>
-                    </div>
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
-                    <div class="service-card">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/211af52b32e06aa98376f4681bd68e0add4f9097?width=720" alt="AI Automation" class="service-image">
-                        <div class="service-content">
-                            <p class="service-category">Build</p>
-                            <h3 class="service-title">AI Automation</h3>
-                            <p class="service-description">Our computer vision models interpret visual data to unlock new possibilities. Applications include: Object Detection</p>
-                        </div>
-                    </div>
+  // Generate Space Stars
+  useEffect(() => {
+    const generateStars = () => {
+      return Array.from({ length: 150 }).map((_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        size: Math.random() > 0.9 ? Math.random() * 3 + 2 : Math.random() * 2 + 1, // 10% larger stars
+        animationDuration: `${Math.random() * 4 + 3}s`, // Slower, majestic twinkle
+        animationDelay: `${Math.random() * 5}s`,
+        type: Math.random() > 0.92 ? 'burning' : 'standard' // 8% are "burning" stars
+      }));
+    };
+    setStars(generateStars());
+  }, []);
 
-                    <div class="service-card">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/ff0201d3081c7bfe3c9aa1447412856dfe04bf9f?width=720" alt="AI SaaS" class="service-image">
-                        <div class="service-content">
-                            <p class="service-category">Build</p>
-                            <h3 class="service-title">AI Saas</h3>
-                            <p class="service-description">We understand that each business has unique needs. Our custom AI solutions are tailored to solve specific challenges.</p>
-                        </div>
-                    </div>
-                </div>
+  // Mouse move effect & Custom Cursor
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+      
+      // Check if hovering over clickable elements for cursor effect
+      const hoveredElement = document.elementFromPoint(e.clientX, e.clientY);
+      if (hoveredElement) {
+        const isClickable = hoveredElement.closest('a') || 
+                           hoveredElement.closest('button') || 
+                           hoveredElement.closest('.interactive');
+        setCursorVariant(isClickable ? "hover" : "default");
+      }
+    };
 
-                <div class="section-footer">
-                    <a href="services.html" class="section-link">
-                        <button class="explore-btn">Explore More</button>
-                    </a>
-                </div>
-            </div>
-        </section>
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
-        <!-- Blogs Section -->
-        <section class="blogs-section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="20" fill="white"/>
-                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                        </svg>
-                        <span>Blogs</span>
-                    </div>
-                </div>
+  const features = [
+    {
+      icon: <CreditCard size={32} />,
+      title: "90 Websites for Free",
+      desc: "Get 3 Free Credits daily. That's up to 90 websites a month without spending a dime."
+    },
+    {
+      icon: <Github size={32} />,
+      title: "One-Click GitHub Push",
+      desc: "Seamlessly push your generated code to your GitHub repository instantly."
+    },
+    {
+      icon: <Download size={32} />,
+      title: "Full Code Ownership",
+      desc: "Download the complete source code. It's clean, readable, and yours to keep."
+    },
+    {
+      icon: <Clock size={32} />,
+      title: "Build in < 120 Seconds",
+      desc: "From idea to deployed website in under two minutes. Speed is our currency."
+    },
+    {
+      icon: <MessageSquare size={32} />,
+      title: "Chat to Edit",
+      desc: "Need changes? Just chat. 'Make the button blue', 'Add a contact form' - done."
+    },
+    {
+      icon: <Zap size={32} />,
+      title: "Instant Deploy",
+      desc: "Go live immediately. Share your creation with the world with a single link."
+    }
+  ];
 
-                <div class="blogs-detail-grid">
-                    <div class="blog-detail-card">
-                        <div class="blog-detail-header">
-                            <h3 class="blog-detail-title">AI Automation: Transforming How Businesses Work</h3>
-                            <a href="b1.html" target="_blank" rel="noopener noreferrer" class="blog-read-btn">
-                                Read More
-                            </a>
-                        </div>
-                        <p class="blog-detail-category">Automation</p>
-                        <p class="blog-detail-description">Prabony AI’s intelligent automation services help businesses streamline operations, reduce manual work, and boost productivity using cutting-edge AI technologies. Discover the future of efficiency today.</p>
-                    </div>
+  const useCases = [
+    {
+      icon: <Rocket size={24} />,
+      role: "Startup Founders",
+      desc: "Don't know how to code? Kickstart your MVP with BadCoder and launch fast."
+    },
+    {
+      icon: <GraduationCap size={24} />,
+      role: "Students",
+      desc: "Build impressive projects for your portfolio or hackathons instantly."
+    },
+    {
+      icon: <Store size={24} />,
+      role: "Small Business",
+      desc: "Go digital today. No tech skills needed. Just chat and get your business online."
+    },
+    {
+      icon: <Briefcase size={24} />,
+      role: "Professionals",
+      desc: "Build beautiful personal websites or landing pages to showcase your work."
+    },
+    {
+      icon: <UserCheck size={24} />,
+      role: "Freelancers",
+      desc: "Deliver client projects faster and build your own portfolio in minutes."
+    },
+    {
+      icon: <Building2 size={24} />,
+      role: "Agency Owners",
+      desc: "Scale your output. Build for clients with a single prompt and maximize margins."
+    }
+  ];
 
-                    <div class="blog-detail-card">
-                        <div class="blog-detail-header">
-                            <h3 class="blog-detail-title">AI App: Build Smart, Scalable<br /> and Intelligent Apps</h3>
-                            <a href="b2.html" target="_blank" rel="noopener noreferrer" class="blog-read-btn">
-                                Read More
-                            </a>
-                        </div>
-                        <p class="blog-detail-category">App</p>
-                        <p class="blog-detail-description">Prabony AI builds intelligent AI-powered apps for web and mobile platforms. Discover how our AI app development services help businesses automate, personalize, and innovate at scale.</p>
-                    </div>
+  const faqs = [
+    {
+      q: "Is it really free?",
+      a: "Yes! You get 3 free credits every single day. You can build up to 90 websites a month completely for free."
+    },
+    {
+      q: "Do I own the code?",
+      a: "Absolutely. You can download the full source code or push it to your GitHub. You own what you build."
+    },
+    {
+      q: "What tech stack does it use?",
+      a: "BadCoder generates minimal, easy-to-understand HTML, CSS, and JavaScript code that is production-ready."
+    },
+    {
+      q: "Can I edit the website after generating?",
+      a: "Yes. Our 'Chat to Edit' feature allows you to refine your website using natural language commands."
+    },
+    {
+      q: "Is it suitable for production apps?",
+      a: "BadCoder builds excellent front-end foundations, landing pages, and single-page applications ready for deployment."
+    }
+  ];
 
-                    <div class="blog-detail-card">
-                        <div class="blog-detail-header">
-                            <h3 class="blog-detail-title">Prabony AI Founder Rohan R Gupta Raises $1M at $50M Valuation from Angel Investor</h3>
-                            <a href="b3.html" target="_blank" rel="noopener noreferrer" class="blog-read-btn">
-                                Read More
-                            </a>
-                        </div>
-                        <p class="blog-detail-category">Growth</p>
-                        <p class="blog-detail-description">At just 20, Rohan R Gupta—founder of Prabony AI—has raised $1 million at a $50 million valuation from Angel Investor. Discover how this young millionaire is shaping the future of AI.</p>
-                    </div>
+  const analytics = [
+    { label: "Users", value: 3500 },
+    { label: "Websites Built", value: 2000 },
+    { label: "Prompts Sent", value: 5000 },
+    { label: "Github Repos Pushed", value: 1000 },
+  ];
 
-                    <div class="blog-detail-card">
-                            <div class="blog-detail-header">
-                                <h3 class="blog-detail-title">AI Agents: The Smartest Way to Automate Workflows</h3>
-                                <a href="b4.html" target="_blank" rel="noopener noreferrer" class="blog-read-btn">
-                                    Read More
-                                </a>
-                            </div>
-                            <p class="blog-detail-category">Agents</p>
-                            <p class="blog-detail-description">Discover how Prabony AI builds intelligent AI Agents that can automate business processes, chat with users, and make decisions in real time. Unlock the power of autonomous systems for your enterprise.</p>
-                        </div>
-                </div>
+  const socialLinks = [
+    { icon: <Youtube size={20} />, href: "https://www.youtube.com/@PrabonyAI" },
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/prabony.ai?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/company/prabonyai/" },
+    { icon: <XLogo size={20} />, href: "https://x.com/prabonyAI" }, // Replaced with custom X component
+  ];
 
-                <div class="section-footer">
-                    <a href="blogs.html" class="section-link">
-                    <button class="explore-btn">Explore More</button>
-                </a>
-               </div>
-            </div>
-        </section>
+  return (
+    <div className={`min-h-screen transition-colors duration-1000 ease-in-out font-['Poppins'] ${darkMode ? 'bg-[#050510] text-white' : 'bg-gray-50 text-gray-900'} overflow-x-hidden cursor-none`}>
+      {/* Font & Styles Import */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap');
+          
+          .ambient-light {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+            transition: all 1s ease;
+          }
+          
+          /* Custom scrollbar */
+          ::-webkit-scrollbar {
+            width: 8px;
+          }
+          ::-webkit-scrollbar-track {
+            background: ${darkMode ? '#050510' : '#f9fafb'};
+          }
+          ::-webkit-scrollbar-thumb {
+            background: ${darkMode ? '#333' : '#ccc'};
+            border-radius: 4px;
+          }
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-                <div class="section-header">
-                    <div class="section-tag">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" rx="20" fill="white"/>
-                            <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                        </svg>
-                        <span>Feedbacks</span>
-                    </div>
-                </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="quote-mark">&ldquo;</div>
-                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/1301787000da041f4001887c4357ee532817a7c1?width=248" alt="Bessie Cooper" class="testimonial-avatar">
-                    <div class="testimonial-content">
-                        <p>Prabony's AI models have transformed our business operations. The accuracy and efficiency of their image recognition system have significantly reduced our processing time. We highly recommend their services!</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Bessie Cooper</h4>
-                                <span>CEO, Bright Visions Inc</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-mark">&ldquo;</div>
-                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/908992f7cbabfc51d0cfc7255d21e896614cfd7e?width=248" alt="Michael Rodriguez" class="testimonial-avatar">
-                    <div class="testimonial-content">
-                        <p>Working with Prabony AI has been a game-changer for us. Their natural language processing models have enabled us to better understand and respond to customer queries, enhancing our overall customer service experience.</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Michael Rodriguez</h4>
-                                <span>Product Owner, Innovate Corp.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-mark">&ldquo;</div>
-                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/02b87a568c3fe78e4c6b80d51d0e7ffbc3817491?width=248" alt="David Lee" class="testimonial-avatar">
-                    <div class="testimonial-content">
-                        <p>The predictive analytics model from Prabony AI has provided us with invaluable insights, helping us make data-driven decisions that have boosted our sales and optimized our inventory management</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>David Lee</h4>
-                                <span>CFO, Financial Horizons</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-mark">&ldquo;</div>
-                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/5088071bd4b064792473df59d7f805b27f4e24da?width=248" alt="Emily Thompson" class="testimonial-avatar">
-                    <div class="testimonial-content">
-                        <p>Prabony AI's custom AI solution was exactly what we needed. Their team was professional, responsive, and delivered a model that exceeded our expectations. Our workflow has never been smoother.</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Emily Thompson</h4>
-                                <span>CTO , Tech Innovators Ltd.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          /* Reveal Glow Animation */
+          @keyframes revealGlow {
+            0% { opacity: 0.3; transform: translateY(20px) scale(0.95); }
+            50% { opacity: 0.6; transform: translateY(0) scale(1); }
+            100% { opacity: 0.3; transform: translateY(20px) scale(0.95); }
+          }
+          .animate-reveal {
+            animation: revealGlow 4s infinite ease-in-out;
+          }
+
+          /* Star Animations */
+          @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+          }
+          
+          @keyframes burn {
+            0%, 100% { opacity: 0.4; transform: scale(1); box-shadow: 0 0 2px rgba(255, 255, 255, 0.2); }
+            50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(120, 100, 255, 0.4); }
+          }
+
+          .star {
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            z-index: 0;
+          }
+        `}
+      </style>
+
+      {/* Custom Cursor Lens */}
+      <div 
+        className="fixed pointer-events-none z-[100] rounded-full transition-all duration-300 ease-out flex items-center justify-center mix-blend-difference"
+        style={{
+          left: mousePosition.x,
+          top: mousePosition.y,
+          width: '30px',
+          height: '30px',
+          transform: `translate(-50%, -50%) scale(${cursorVariant === 'hover' ? 3 : 1})`,
+          backgroundColor: cursorVariant === 'hover' ? 'white' : 'transparent',
+          border: '1px solid rgba(255,255,255,0.5)'
+        }}
+      />
+
+      {/* BACKGROUND CONTAINER */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        
+        {/* Dark Mode: Starry Universe */}
+        <div className={`absolute inset-0 transition-opacity duration-1000 ${darkMode ? 'opacity-100' : 'opacity-0'}`}>
+           {/* Deep Space Gradient Base */}
+           <div className="absolute inset-0 bg-gradient-to-b from-[#020205] via-[#050510] to-[#0a0a20]" />
+           
+           {/* Nebula Effects */}
+           <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent" />
+           <div className="absolute bottom-0 right-0 w-full h-full opacity-20 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-900/40 via-transparent to-transparent" />
+
+           {/* Generated Stars */}
+           {stars.map((star) => (
+             <div 
+                key={star.id}
+                className="star"
+                style={{
+                  left: star.left,
+                  top: star.top,
+                  width: `${star.size}px`,
+                  height: `${star.size}px`,
+                  animationName: star.type === 'burning' ? 'burn' : 'twinkle',
+                  animationDuration: star.animationDuration,
+                  animationDelay: star.animationDelay,
+                  animationIterationCount: 'infinite',
+                  animationTimingFunction: 'ease-in-out',
+                }}
+             />
+           ))}
         </div>
-    </section>
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="40" height="40" rx="20" fill="white"/>
-                        <path d="M19.2966 11.9009C19.5382 11.2479 20.4618 11.2479 20.7034 11.9009L22.5812 16.9757C22.6572 17.181 22.819 17.3428 23.0243 17.4188L28.0991 19.2966C28.7521 19.5382 28.7521 20.4618 28.0991 20.7034L23.0243 22.5812C22.819 22.6572 22.6572 22.819 22.5812 23.0243L20.7034 28.0991C20.4618 28.7521 19.5382 28.7521 19.2966 28.0991L17.4188 23.0243C17.3428 22.819 17.181 22.6572 16.9757 22.5812L11.9009 20.7034C11.2479 20.4618 11.2479 19.5382 11.9009 19.2966L16.9757 17.4188C17.181 17.3428 17.3428 17.181 17.4188 16.9757L19.2966 11.9009Z" fill="#181818"/>
-                    </svg>
-                    <span>FAQ</span>
-                </div>
-            </div>
 
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What services does Prabony AI offer?
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Prabony AI provides comprehensive AI solutions including AI Agents, AI Automation, AI SaaS platforms, AI Mobile Apps, AI Web Apps, and AI Design services. We specialize in developing custom AI solutions tailored to your business needs across various industries.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How long does it take to develop an AI solution?
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Development timelines vary based on project complexity and requirements. Simple AI integrations can take 2-4 weeks, while comprehensive custom AI solutions may require 3-6 months. We provide detailed project timelines during our initial consultation.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What industries does Prabony AI serve?
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            We serve a wide range of industries including Healthcare, Finance, E-commerce, Education, Manufacturing, Real Estate, and more. Our AI solutions are designed to be adaptable and scalable across different business sectors.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Do you provide ongoing support and maintenance?
-                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Yes, we offer comprehensive support and maintenance packages. This includes regular updates, performance monitoring, bug fixes, feature enhancements, and 24/7 technical support to ensure your AI solutions continue to perform optimally.
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {/* Light Mode: Clean Minimal Ambience */}
+        <div className={`absolute inset-0 transition-opacity duration-1000 ${darkMode ? 'opacity-0' : 'opacity-100'}`}>
+          <div 
+            className="ambient-light w-96 h-96 opacity-30 transition-transform duration-100 ease-out"
+            style={{
+              background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(255,255,255,0) 70%)',
+              left: `${(mousePosition.x / window.innerWidth) * 100}%`,
+              top: `${(mousePosition.y / window.innerHeight) * 100}%`,
+              transform: 'translate(-50%, -50%)'
+            }}
+          />
+          <div className="ambient-light top-0 left-0 w-[600px] h-[600px] -translate-x-1/3 -translate-y-1/3 bg-blue-300/20" />
+          <div className="ambient-light bottom-0 right-0 w-[800px] h-[800px] translate-x-1/3 translate-y-1/3 bg-purple-300/20" />
         </div>
-        <div class="section-footer">
-            <a href="contact.html" class="section-link">
-                <button class="explore-btn">Contact Us</button>
+
+      </div>
+
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-md ${darkMode ? 'bg-black/20 border-b border-white/5' : 'bg-white/70 border-b border-black/5'}`}>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+          <div className="flex items-center gap-2 group cursor-pointer interactive">
+            <span className={`font-['Unbounded'] font-semibold text-xl tracking-tight transition-colors ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <a href="www.prabonyai.in">Prabony AI</a>
+            </span>
+          </div>
+          
+          <button 
+            onClick={toggleTheme}
+            className={`interactive p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${darkMode ? 'bg-white/10 hover:bg-white/20 text-yellow-300' : 'bg-black/5 hover:bg-black/10 text-slate-700'}`}
+            aria-label="Toggle Theme"
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Main Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
+        
+        {/* HERO SECTION */}
+        <section className="min-h-[80vh] flex flex-col items-center justify-center text-center mb-16">
+          
+          <div className={`mb-8 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide animate-fade-in-up flex items-center gap-2 border ${darkMode ? 'border-white/10 bg-white/5 text-blue-300' : 'border-black/10 bg-black/5 text-blue-700'}`}>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            Prabony AI
+          </div>
+
+          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-tight mb-8 flex items-center justify-center flex-wrap gap-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <span>Introducing BadCoder</span>
+  
+          </h1>
+
+          <p className={`text-xl md:text-2xl font-light max-w-2xl mx-auto leading-relaxed mb-10 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            Build websites with one prompt.
+            <br />
+            <span className="text-lg opacity-80 mt-2 block">Minimalist. Powerful. Instant.</span>
+          </p>
+
+          <div className="group">
+            <a 
+              href="https://www.badcoder.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="interactive relative inline-flex items-center gap-4 px-8 h-[60px] text-lg font-semibold rounded-full transition-all duration-300 scale-[0.7] hover:scale-[0.75] hover:tracking-wide overflow-hidden shadow-lg hover:shadow-blue-500/25 origin-top"
+            >
+              <div className={`absolute inset-0 transition-opacity duration-300 ${darkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`} />
+              <span className={`relative z-10 flex items-center gap-2 ${darkMode ? 'text-black' : 'text-white'}`}>
+                Get Started
+                <ArrowRight size={20} />
+              </span>
             </a>
-        </div>
-    </section>
+          </div>
+        </section>
 
+        {/* ANALYTICS SECTION */}
+        <section className="py-16 mb-20 border-y border-white/5">
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+             {analytics.map((item, index) => (
+               <div key={index} className="space-y-2 scale-[0.7] origin-center">
+                 <div className={`text-4xl md:text-5xl font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                   <CountUp end={item.value} />+
+                 </div>
+                 <div className={`text-sm uppercase tracking-wider font-medium ${darkMode ? 'text-blue-400/80' : 'text-blue-600'}`}>
+                   {item.label}
+                 </div>
+               </div>
+             ))}
+           </div>
+        </section>
 
-    <!-- Footer -->
-       <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <!-- Left Section -->
-      <div class="footer-left">
-        <img src="https://raw.githubusercontent.com/kunfuspanda/photos/main/log.png" alt="Prabony AI Logo" class="footer-logo" />
-        <p class="footer-description">
-          Join our newsletter to stay up to date on features and releases.
-        </p>
-        <form class="newsletter" onsubmit="event.preventDefault(); alert('Subscribed!');">
-          <input type="email" placeholder="Type your id" required />
-          <button class="btn-primary" type="submit">Subscribe</button>
-        </form>
-        <p class="newsletter-disclaimer">
-          By subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.
-        </p>
-      </div>
+        {/* FEATURES SECTION */}
+        <section className="py-24 mb-20">
+          <div className="text-center mb-20">
+            <h2 className={`text-3xl md:text-5xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Why use BadCoder?
+            </h2>
+            <p className={`text-lg max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              Everything you need to go from idea to deployment in seconds.
+            </p>
+          </div>
 
-      <!-- Center Section -->
-     
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-column">
-          <h3>More</h3>
-          <a href="blogs.html">Blog</a>
-          <a href="index.html#portfolio">Career</a>
-          <a href="#">Case Studies</a>
-          <a href="#">Help Center</a>
-        </div>
-        <div class="footer-column">
-          <h3>Follow Us</h3>
-          <a href="https://www.linkedin.com/company/prabonyai/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/PrabonyAI" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://www.instagram.com/prabony.ai/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, idx) => (
+              <div 
+                key={idx} 
+                className={`interactive p-8 rounded-2xl transition-all duration-300 border backdrop-blur-sm group hover:-translate-y-2
+                  ${darkMode 
+                    ? 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-500/30' 
+                    : 'bg-white border-black/5 shadow-lg hover:shadow-xl'
+                  }`}
+              >
+                <div className={`mb-6 p-3 rounded-xl inline-block ${darkMode ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-600'}`}>
+                  {feature.icon}
+                </div>
+                <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  {feature.title}
+                </h3>
+                <p className={`leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* USE CASES SECTION */}
+        <section className="py-24 mb-20">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+            <div className="max-w-xl">
+              <h2 className={`text-3xl md:text-5xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                Built for Everyone
+              </h2>
+              <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Whether you are just starting or scaling an agency, BadCoder adapts to your workflow.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {useCases.map((useCase, idx) => (
+              <div 
+                key={idx}
+                className={`interactive p-6 rounded-xl border transition-all duration-300 
+                  ${darkMode 
+                    ? 'bg-transparent border-white/10 hover:bg-blue-500/10' 
+                    : 'bg-transparent border-black/10 hover:bg-blue-50'
+                  }`}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={darkMode ? 'text-blue-400' : 'text-blue-600'}>
+                    {useCase.icon}
+                  </div>
+                  <h4 className={`text-lg font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {useCase.role}
+                  </h4>
+                </div>
+                <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {useCase.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-24 max-w-3xl mx-auto mb-20">
+          <h2 className={`text-3xl md:text-5xl font-semibold text-center mb-16 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            Frequently Asked Questions
+          </h2>
+          
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div 
+                key={idx} 
+                className={`interactive border rounded-2xl overflow-hidden transition-all duration-300 ${darkMode ? 'border-white/10 bg-white/5' : 'border-black/5 bg-white'}`}
+              >
+                <button 
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                >
+                  <span className={`text-lg font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {faq.q}
+                  </span>
+                  {openFaq === idx ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaq === idx ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <div className={`p-6 pt-0 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {faq.a}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FUTURE PRODUCTS REVEAL */}
+        <section className="py-32 relative overflow-hidden flex flex-col items-center justify-center">
+            {/* Glowing Floor - Adjusted Radius - REMOVED */}
+            
+            <div className="relative z-10 text-center space-y-4">
+              {/* Tab - Translated Up */}
+              <div 
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transform -translate-y-[50px]
+                ${darkMode ? 'border-blue-500/30 text-blue-300 bg-blue-500/10' : 'border-blue-500/30 text-blue-600 bg-blue-50'}`}
+              >
+                <Sparkles size={16} />
+                <span>The Future Awaits</span>
+              </div>
+              <h2 className={`text-5xl md:text-7xl font-bold tracking-tighter opacity-90 ${darkMode ? 'text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10' : 'text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-400'}`}>
+                Something New <br/> Is Coming
+              </h2>
+            </div>
+        </section>
+
+        {/* ABOUT & CONTACT SECTION */}
+        <section className="py-20 text-center border-t border-opacity-10 border-gray-500">
+          <div className={`inline-block p-4 rounded-full mb-8 ${darkMode ? 'bg-white/5' : 'bg-black/5'}`}>
+            <Cpu size={48} className={`mx-auto ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+          </div>
+          
+          <h2 className={`text-3xl md:text-4xl font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            About Prabony AI
+          </h2>
+          
+          <div className={`max-w-3xl mx-auto text-lg leading-relaxed space-y-6 mb-12 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p>
+              Prabony AI launched <span className="font-semibold text-blue-500">BadCoder</span> with a singular vision.
+            </p>
+            <p>
+              Our mission is to establish India as a global leader on the stage of Artificial Intelligence. 
+              We believe in the power of technology to simplify existence. Our purpose is to build products that 
+              make people's lives easier, simpler, and more creative through the power of AI.
+            </p>
+          </div>
+
+          {/* Minimal Contact Info */}
+          <div className={`flex items-center justify-center gap-2 text-sm md:text-base mb-8 transition-colors ${darkMode ? 'text-gray-500 hover:text-white' : 'text-gray-500 hover:text-black'}`}>
+             <Mail size={16} />
+             <a href="mailto:info@prabonyai.in" className="interactive border-b border-transparent hover:border-current transition-all">
+               info@prabonyai.in
+             </a>
+          </div>
+          
+           {/* Social Media Links */}
+           <div className="flex justify-center items-center gap-6">
+            {socialLinks.map((social, idx) => (
+              <a 
+                key={idx} 
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`interactive p-2 rounded-full transition-all duration-300 hover:-translate-y-1 
+                  ${darkMode 
+                    ? 'text-gray-400 hover:text-white hover:bg-white/10' 
+                    : 'text-gray-500 hover:text-black hover:bg-black/5'
+                  }`}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className={`py-8 text-center text-sm ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>
+          <p>© {new Date().getFullYear()} Prabony AI. All rights reserved.</p>
+        </footer>
+
       </div>
     </div>
+  );
+};
 
-    <!-- Bottom Section -->
-    <div class="footer-bottom">
-      <div class="footer-links">
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookies Settings</a>
-      </div>
-      <p>&copy; 2025 PrabonyAI. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+export default LandingPage;
